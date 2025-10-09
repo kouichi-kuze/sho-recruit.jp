@@ -8,9 +8,13 @@
     </h1>
 
     <div class="header-bnr">
-      <a href="">
-        インターンシップ
+      <a class="header-bnr-link" href="xxxx">
+        インターンシップ<br>
         参加者募集中！
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 47C36.7025 47 47 36.7025 47 24C47 11.2975 36.7025 1 24 1C11.2975 1 1 11.2975 1 24C1 36.7025 11.2975 47 24 47Z" stroke="white" stroke-miterlimit="10"/>
+        <path d="M31.9 24.9204L19.1001 19.4004C19.1001 19.4004 21.5901 22.7404 21.5901 24.9204C21.5901 27.1004 19.1001 30.4004 19.1001 30.4004L31.9 24.9204Z" fill="white"/>
+        </svg>
       </a>
     </div>
     <!-- SP用：ハンバーガー -->
@@ -20,50 +24,73 @@
       <span class="hamburger__text">MENU</span>
     </button>
 
-    <nav class="global-nav" id="global-menu" aria-label="グローバルナビ">
+    <nav class="global-nav" aria-label="グローバルナビ">
       <ul class="global-nav__list">
-        <li class="global-nav__item"><a class="nav-first-layer" href="/about">私たちについて</a></li>
-        <li class="global-nav__item"><a class="nav-first-layer" href="/works">仕事を知る</a></li>
+        <li class="global-nav__item" style="--order-sp:1; --order-pc:1;">
+          <a class="nav-first-layer" href="/about">私たちについて
+            <svg class="ico-nav-02 d-block d-lg-none" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
+          </a></li>
+        <li class="global-nav__item" style="--order-sp:3; --order-pc:2;">
+          <a class="nav-first-layer" href="/works">仕事を知る
+            <svg class="ico-nav-02 d-block d-lg-none" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
+          </a></li>
 
-        <li class="global-nav__item has-dropdown">
+        <li class="global-nav__item has-dropdown" style="--order-sp:5; --order-pc:3;">
           <a class="nav-first-layer dropdown-toggle" href="/environment" aria-haspopup="true" aria-expanded="false">
             働く環境
             <svg class="ico-nav-01" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.90991 6.33008L4.95996 1.67007L1 6.33008" stroke="#333333" stroke-miterlimit="10"/></svg>
           </a>
           <ul class="submenu" role="menu" aria-label="働く環境メニュー">
-            <li><a href="/environment/tour" role="menuitem">社内ツアー
+            <li><a href="/environment/tour" role="menuitem">
+              社内ツアー
               <svg class="ico-nav-02" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
             </a></li>
-            <li><a href="/environment/benefits" role="menuitem">福利厚生
+            <li><a href="/environment/benefits" role="menuitem">
+              福利厚生
               <svg class="ico-nav-02" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
             </a></li>
-            <li><a href="/environment/systems" role="menuitem">各種制度
+            <li><a href="/environment/systems" role="menuitem">
+              各種制度
               <svg class="ico-nav-02" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
             </a></li>
           </ul>
         </li>
 
-        <li class="global-nav__item"><a class="nav-first-layer" href="/numbers">数字で見る翔設計</a></li>
-        <li class="global-nav__item"><a class="nav-first-layer" href="/discussion">座談会</a></li>
-        <li class="global-nav__item"><a class="nav-first-layer" href="/faq">よくあるご質問</a></li>
+        <li class="global-nav__item" style="--order-sp:2; --order-pc:4;">
+          <a class="nav-first-layer" href="/numbers">数字で見る翔設計
+            <svg class="ico-nav-02 d-block d-lg-none" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
+          </a></li>
+        <li class="global-nav__item" style="--order-sp:4; --order-pc:5;"><a class="nav-first-layer" href="/discussion">座談会
+          <svg class="ico-nav-02 d-block d-lg-none" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
+        </a></li>
+        <li class="global-nav__item d-none d-lg-block" style="--order-sp:6; --order-pc:6;"><a class="nav-first-layer" href="/faq">よくあるご質問</a></li>
 
-        <li class="global-nav__item has-dropdown">
+        <li class="global-nav__item has-dropdown" style="--order-sp:7; --order-pc:7;">
           <a class="nav-first-layer dropdown-toggle" href="/recruit" aria-haspopup="true" aria-expanded="false">
             採用情報
             <svg class="ico-nav-01" width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.90991 6.33008L4.95996 1.67007L1 6.33008" stroke="#333333" stroke-miterlimit="10"/></svg>
           </a>
           <ul class="submenu" role="menu" aria-label="採用情報メニュー">
-            <li><a href="/recruit/new-graduate" role="menuitem">新卒採用情報
+            <li><a href="/recruit/new-graduate" role="menuitem">
+              新卒採用情報
               <svg class="ico-nav-02" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
             </a></li>
-            <li><a href="/recruit/internship" role="menuitem">インターンシップ／<br>ワークショップ
+            <li><a href="/recruit/internship" role="menuitem">
+              インターンシップ／<br>ワークショップ
               <svg class="ico-nav-02" width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.8 5.52L0 0C0 0 2.49 3.34 2.49 5.52C2.49 7.7 0 11 0 11L12.8 5.52Z" fill="#333333"/></svg>
             </a></li>
           </ul>
         </li>
 
-        <li class="global-nav__item entry-item"><a class="nav-first-layer btn-entry" href="/entry">ENTRY</a></li>
+        <li class="global-nav__item entry-item" style="--order-sp:8; --order-pc:8;"><a class="nav-first-layer btn-entry" href="/entry">ENTRY</a></li>
       </ul>
     </nav>
+
   </div>
 </header>
+
+<div class="fixed-btn-link">
+  <a href="xxxx">
+    <img src="/assets/img/common/bnr_fixed_pc.png" alt="SHO-SEKKEI group（翔設計グループ）">
+  </a>
+</div>

@@ -6,7 +6,9 @@
   top: 0;
   z-index: 100;
   width: 100%;
-
+  height: 100%;
+  //background-color: rgba(g.$white ,0.3);
+ 
   .site-header__inner {
     display: flex;
     align-items: center;
@@ -16,20 +18,25 @@
     margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
-    @media (min-width: g.$desktop-breakpoint-md) {
+    padding: 0 0 0 10px;
+    @media (min-width: g.$desktop-breakpoint-sm) {
+      padding: 0 0 0 20px;
+    }
+    @media (min-width: g.$desktop-breakpoint-lg) {
       padding: 12px 20px;
     }
   }
 
   @media (min-width: g.$desktop-breakpoint-lg) {
     .site-header__inner {
-      width: calc(100% - 40px);
+      width: 100%;
     }
   }
 
-  @media (min-width: g.$desktop-breakpoint-xl) {
+  @media (min-width: g.$desktop-breakpoint-xxl) {
     .site-header__inner {
-      width: calc(100% - 140px);
+      width: 100%;
+      padding: 20px 20px 0 70px;
     }
   }
 
@@ -40,7 +47,7 @@
     width: calc(91px + 75px + 8px);
   }
 
-  @media (min-width: g.$desktop-breakpoint-lg) {
+  @media (min-width: g.$desktop-breakpoint-xl) {
     .site-logo {
       width: calc(150px + 96px + 10px);
     }
@@ -51,7 +58,7 @@
     display: block;
   }
 
-  @media (min-width: g.$desktop-breakpoint-lg) {
+  @media (min-width: g.$desktop-breakpoint-xl) {
     .site-logo .site-logo-img {
       width: 150px;
     }
@@ -71,7 +78,7 @@
     margin-left: 8px;
   }
 
-  @media (min-width: g.$desktop-breakpoint-lg) {
+  @media (min-width: g.$desktop-breakpoint-xl) {
     .site-logo .badge-recruit {
       font-size: 0.875rem;
       width: 96px;
@@ -92,10 +99,11 @@
       display: flex;
       align-items: flex-start;
       flex-wrap: wrap;
-
-      @media (min-width: g.$desktop-breakpoint-md) {
+      gap: 20px 0;
+      @media (min-width: g.$desktop-breakpoint-lg) {
         gap: 20px;
         padding: 0;
+        align-items: center;
       }
 
       @media (min-width: g.$desktop-breakpoint-xl) {
@@ -106,8 +114,11 @@
     .global-nav__item {
       position: relative;
       width: 50%;
-      @media (min-width: g.$desktop-breakpoint-md) {
+      order: var(--order-sp, 0);
+      @media (min-width: g.$desktop-breakpoint-lg) {
         width: auto;
+        padding-bottom: 12px;
+        order: var(--order-pc, 0);
       }
 
       > a {
@@ -121,7 +132,7 @@
         font-size: 0.875rem;
         font-weight: 400;
         color: g.$white;
-        @media (min-width: g.$desktop-breakpoint-md) {
+        @media (min-width: g.$desktop-breakpoint-lg) {
           color: #333;
           font-size: 0.75rem;
         }
@@ -144,26 +155,83 @@
           pointer-events: none;
         }
 
-        &:hover {
-          opacity: 1;
-        }
+        @media (min-width: g.$desktop-breakpoint-lg) {
+          &:hover {
+            opacity: 1;
+          }
 
-        &:hover::after,
-        &:focus-visible::after {
-          transform: scaleX(1);
+          &:hover::after,
+          &:focus-visible::after {
+            transform: scaleX(1);
+          }
         }
+        
       }
 
+
       .btn-entry {
-        border: 1px solid #111;
-        border-radius: 9999px;
-        padding: 10px 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 18px;
+        border-radius: 6px;
+        font-weight: 600;
+        color: #fff;
+        border: 1px solid transparent;
+        width: 100%;
+        max-width: 360px;
+        height: 70px;
+        box-sizing: border-box;
+        @include m.mx-auto;
+        background-image: linear-gradient(
+          60deg,
+          rgba(3, 35, 48, 1.0) 0%,
+          rgba(35, 78, 110, 1.0) 49%,
+          rgba(35, 78, 110, 1.0) 100%
+        );
+        
+
+        -webkit-font-smoothing: antialiased;
+        transition: background-image .2s ease, transform .06s ease;
+        font-family: g.$font-public-sans;
+        font-weight: 500;
+        @media (min-width: g.$desktop-breakpoint-lg) {
+          width: 116px;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        @media (min-width: g.$desktop-breakpoint-xl) {
+          font-size: 1.1875rem;
+        }
+
+        /*
+        &:hover {
+          background-image: linear-gradient(
+            90deg,
+            #032330 0%,
+            #234E6E 49%,
+            #234E6E 100%
+          );
+        }
+
+        &:active {
+          transform: translateY(1px);
+        }
+
+        &:focus-visible {
+          outline: 3px solid rgba(35, 78, 110, .35);
+          outline-offset: 2px;
+        }
+          */
       }
 
       &.entry-item {
         width: 100%;
-        @media (min-width: g.$desktop-breakpoint-md) {
+        flex: 0 0 100%;
+        text-align: center;
+        @media (min-width: g.$desktop-breakpoint-lg) {
           width: auto;
+          flex: 0 0 auto;
         }
       }
     }
@@ -172,15 +240,16 @@
   .global-nav .has-dropdown {
     position: relative;
     box-sizing: border-box;
+    padding-bottom: 12px;
   }
 
-  @media (min-width: g.$desktop-breakpoint-md) {
+  @media (min-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown .nav-first-layer {
-      margin-bottom: 15px;
+      //margin-bottom: 15px;
     }
   }
 
-  @media (min-width: g.$desktop-breakpoint-md) {
+  @media (min-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown:hover > .nav-first-layer::after,
     .global-nav .has-dropdown:focus-within > .nav-first-layer::after {
       transform: scaleX(1);
@@ -206,9 +275,10 @@
     box-sizing: border-box;
     white-space: normal;
     overflow-wrap: anywhere;
+
   }
 
-  @media (min-width: g.$desktop-breakpoint-md) {
+  @media (min-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown .submenu {
       padding: 20px 0;
       min-width: 200px;
@@ -231,6 +301,7 @@
     box-sizing: border-box;
     padding: 8px 20px;
     transition: opacity .18s ease, transform .18s ease;
+    position: relative;
   }
 
   .global-nav .has-dropdown .submenu li a:hover {
@@ -242,7 +313,7 @@
     right: 0;
   }
 
-  @media (min-width: g.$desktop-breakpoint-md) {
+  @media (min-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown:hover > .submenu,
     .global-nav .has-dropdown:focus-within > .submenu {
       opacity: 1;
@@ -260,7 +331,7 @@
     height: 8px;
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
+  @media (max-width: g.$desktop-breakpoint-lg) {
     .global-nav {
       position: fixed;
       left: 0;
@@ -284,7 +355,7 @@
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
+  @media (max-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown .submenu {
       position: static;
       background-image: none;
@@ -295,41 +366,100 @@
       max-height: 0;
       overflow: hidden;
       transition: max-height .22s ease;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      gap: 0;
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
+  @media (max-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown.is-open .submenu {
       max-height: 600px;
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
+  @media (max-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown .submenu li a {
-      padding: 12px 8px 12px 16px;
-      font-size: 0.9375rem;
+      padding: 5px 0 5px 0;
+      font-size: 0.75rem;
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+
+  @media (max-width: g.$desktop-breakpoint_lg) {
+    .global-nav .has-dropdown .submenu li a {
       text-decoration: none;
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint_md) { /* 予防。命名揺れがあるなら削除可 */
-    .global-nav .has-dropdown .submenu li a {
-      text-decoration: none;
+  .nav-first-layer {
+    .ico-nav-01 {               /* ← アイコンにtransitionを置く */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        transition: transform .2s ease;
+
+      @media (min-width: g.$desktop-breakpoint-lg) {
+        margin-left: 10px;
+        right: auto;
+        top: auto;
+        transform: translateY(0);
+        position: relative;
+      }
+
+      path {
+        stroke: g.$white !important;
+        @media (min-width: g.$desktop-breakpoint-lg) {
+        stroke: #333333 !important;
+        }
+      }
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
-    .global-nav .has-dropdown.is-open > .nav-first-layer .ico-nav-01 {
+  /* PC：親に乗ってる間は回転維持 */
+  @media (min-width: g.$desktop-breakpoint-lg) {
+    .has-dropdown:hover > .nav-first-layer .ico-nav-01,
+    .has-dropdown:focus-within > .nav-first-layer .ico-nav-01 {
+      transform: rotate(180deg);
+    }
+  }
+
+  /* SP：開いている間は回転維持（JSで .is-open を付与している想定） */
+  @media (max-width: g.$desktop-breakpoint-lg) {
+    .has-dropdown.is-open > .nav-first-layer .ico-nav-01 {
       transform: rotate(180deg);
       transition: transform .2s ease;
     }
+  }
+
+  .ico-nav-02 {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 9px !important;
+      height: auto;
+      @media (min-width: g.$desktop-breakpoint-lg) {
+          right: 20px;
+          width: 12px !important;
+        height: auto;
+      }
+      path {
+        fill: g.$white !important;
+        @media (min-width: g.$desktop-breakpoint-lg) {
+          fill: #333333 !important;
+        }
+      }
   }
 
   .hamburger {
     display: none;
   }
 
-  @media (max-width: g.$desktop-breakpoint-md) {
+  @media (max-width: g.$desktop-breakpoint-lg) {
     .hamburger {
       display: inline-flex;
       flex-direction: column;
@@ -379,12 +509,62 @@
   }
 
   .header-bnr {
-    width: 125px;
-    height: 100%;
     position: absolute;
     right: 55px;
+    width: 125px;
+    height: 55px;
+    display: block;
     @media (min-width: g.$desktop-breakpoint-md) {
+      width: 160px;
+    }
+
+    /* PCでは非表示（SP用バナー想定） */
+    @media (min-width: g.$desktop-breakpoint-lg) {
       display: none;
     }
+
+    .header-bnr-link {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: g.$white;
+      line-height: 1.35;
+      font-weight: 300;
+      font-size: 0.625rem;
+      padding-left: 15px;
+      box-sizing: border-box;
+      background-image: linear-gradient(
+        180deg,
+        #671800 9%,
+        #8B1800 53%,
+        #BA4C00 100%
+      );
+
+
+      @media (min-width: g.$desktop-breakpoint-md) {
+        font-size: 0.875rem;
+      }
+
+      svg {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 19px;
+        height: 19px;
+        pointer-events: none;
+        @media (min-width: g.$desktop-breakpoint-md) {
+          width: 19px;
+          height: 19px;
+        }
+      }
+    }
   }
+
 }
