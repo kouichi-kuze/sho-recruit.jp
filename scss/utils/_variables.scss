@@ -1,0 +1,85 @@
+//$primary: #xxxxx;
+//$secondary: #00CE8F;
+$white: #ffffff;
+$off-white: #FAF8F5;
+$black: #000000;
+//$gray: #;
+$light-gray: #F0F0F0;
+$link-color: #2997FF;
+$title-color: #1571DA;
+$alert-color: red;
+//$green-300: #CCEFEC;
+//$green-100: #F1F7F7;
+
+$text-dark-gray: #808080;
+$text-gray: #B2B2B2;
+$text-green: #3EBCB0;
+$text-eng-title: #B3E8E3;
+$fill-main: #80D8D0;
+$fill-green: #CCEFEC;
+$fill-gray: #F0F0F0;
+$bg-gray: #FBFBFB;
+$bg-green: #F1F7F7;
+$bg-beige: #FAF8F5;
+
+//参考
+//10px → 0.625remf
+//12px → 0.75rem　
+//14px → 0.875rem
+//16px → 1rem
+//17px → 1.0625rem
+//18px → 1.125rem
+//20px → 1.25rem
+//22px → 1.375rem
+//24px → 1.5rem
+//29px → 1.8125rem
+//32px → 2rem
+//33px → 2.0625rem
+//36px → 2.25rem
+//40px → 2.5rem
+//50px → 3.125rem
+//44px → 2.75rem
+//60px → 3.75rem
+//88px → 5.5rem
+
+//.foo { padding-top: rem(60); } // 3.75rem
+//.bar { height: rem(44); }      // 2.75rem
+
+$font-shippori-mincho: "Shippori Mincho", serif;
+$font-noto-sans: 'Noto Sans JP', sans-serif;
+$font-noto-serif: 'Noto Serif JP', serif;
+$font-public-sans: "Public Sans", sans-serif;
+
+$spacer-0: 0;
+$spacer-min: 5px;
+$spacer-1: 10px;
+$spacer-2: 20px;
+$spacer-3: 30px;
+$spacer-4: 40px;
+$spacer-5: 50px;
+$spacer-6: 60px;
+$spacer-7: 70px;
+$spacer-8: 80px;
+$spacer-9: 90px;
+$spacer-10: 100px;
+
+$desktop-breakpoint-xl: 1280px;
+//$desktop-breakpoint-lg: 992px;
+//$desktop-breakpoint-lg: 976px;
+$desktop-breakpoint-lg: 992px;
+
+$desktop-breakpoint-md: 768px;
+$desktop-breakpoint-sm: 544px;
+$desktop-breakpoint-xs: 376px;
+
+$xs: 100px;
+$sm: 150px;
+$md: 180px;
+$lg: lg;
+$xl: xl;
+
+$input-size-sm: 100px;
+$input-size-md: 150px;
+$input-size-lg: 450px;
+$input-size-xl: 1000px;
+$input-size-full: 100%;

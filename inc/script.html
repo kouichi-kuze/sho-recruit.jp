@@ -1,0 +1,247 @@
+<script defer src="/assets/js/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var BP = 768;
+  var header = document.querySelector('.site-header');
+  var burger = header.querySelector('.hamburger');
+  var nav = header.querySelector('.global-nav');
+  var toggles = nav.querySelectorAll('.has-dropdown > .nav-first-layer');
+
+  function isSP(){ return window.innerWidth <= BP; }
+  function openMenu(open){
+    nav.classList.toggle('is-open', open);
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+    document.body.classList.toggle('no-scroll', open);
+    if (open) nav.querySelectorAll('.has-dropdown.is-open').forEach(function(li){ li.classList.remove('is-open'); });
+  }
+
+  if (burger && nav) {
+    burger.addEventListener('click', function () {
+      openMenu(!nav.classList.contains('is-open'));
+    });
+  }
+
+  toggles.forEach(function(a){
+    a.addEventListener('click', function(e){
+      if (!isSP()) return;
+      e.preventDefault();
+      var li = a.closest('.has-dropdown');
+      var willOpen = !li.classList.contains('is-open');
+      nav.querySelectorAll('.has-dropdown.is-open').forEach(function(x){ if (x !== li) x.classList.remove('is-open'); });
+      li.classList.toggle('is-open', willOpen);
+      a.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+    a.addEventListener('keydown', function(e){
+      if (!isSP()) return;
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        a.click();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      openMenu(false);
+    }
+  });
+
+  nav.addEventListener('click', function(e){
+    if (!isSP()) return;
+    var link = e.target.closest('a[href]');
+    if (!link) return;
+    if (!link.classList.contains('nav-first-layer')) {
+      openMenu(false);
+    }
+  });
+
+  document.addEventListener('click', function(e){
+    if (!isSP()) return;
+    if (!nav.contains(e.target) && !burger.contains(e.target)) {
+      openMenu(false);
+    }
+  });
+
+  window.addEventListener('resize', function(){
+    if (!isSP()) {
+      openMenu(false);
+      nav.querySelectorAll('.has-dropdown.is-open').forEach(function(x){ x.classList.remove('is-open'); });
+      toggles.forEach(function(a){ a.setAttribute('aria-expanded', 'false'); });
+    }
+  });
+});
+
+</script>
+<script>
+(function () {
+  var wrap = document.querySelector('.p-intro__movie');
+  if (!wrap) return;
+
+  var btn    = wrap.querySelector('.movie__poster');
+  var mp4    = wrap.getAttribute('data-src');
+  var poster = wrap.getAttribute('data-poster') || '';
+  var title  = wrap.getAttribute('data-title') || '動画';
+
+  function resetToPoster(v) {
+    if (v) {
+      v.pause();
+      v.removeAttribute('src');
+      var s = v.querySelector('source');
+      if (s) s.removeAttribute('src');
+      v.load();
+      v.remove();
+    }
+    wrap.classList.remove('is-playing');
+    btn.focus();
+  }
+
+  function play() {
+    if (!mp4 || wrap.querySelector('video')) return;
+
+    var v = document.createElement('video');
+    v.setAttribute('controls', 'controls');
+    v.setAttribute('playsinline', 'playsinline');
+    v.setAttribute('preload', 'metadata');
+    if (poster) v.setAttribute('poster', poster);
+    v.setAttribute('aria-label', title);
+
+    var src = document.createElement('source');
+    src.src = mp4;
+    src.type = 'video/mp4';
+    v.appendChild(src);
+
+    wrap.appendChild(v);
+    wrap.classList.add('is-playing');
+
+    // 停止(一時停止) or 最後まで再生でポスター復帰
+    //v.addEventListener('pause', function(){ resetToPoster(v); });
+    v.addEventListener('ended', function(){ resetToPoster(v); });
+
+    var p = v.play();
+    if (p && typeof p.catch === 'function') p.catch(function(){});
+  }
+
+  btn.addEventListener('click', function(e){ e.preventDefault(); play(); });
+  btn.addEventListener('keydown', function(e){
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+  });
+})();
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const swiper = new Swiper('.js-interview-swiper', {
+    slidesPerView: 1.5,
+    spaceBetween: 20,
+    centeredSlides: false,
+    loop: false,
+    watchOverflow: true,
+    grabCursor: true,
+    speed: 500,
+    resistanceRatio: 0.85,
+
+    // ← ここで開始位置を右へ（左に余白を足す）
+    slidesOffsetBefore: 65,      // SP時のオフセット
+    slidesOffsetAfter: 65,       // 右端も揃えたい場合は任意で
+
+    slidesPerGroup: 1,
+
+    navigation: {
+      nextEl: '.js-interview-next',
+      prevEl: '.js-interview-prev',
+    },
+
+    keyboard: { enabled: true },
+    a11y: { enabled: true },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 3.6,
+        spaceBetween: 24,
+        slidesOffsetBefore: 200,  // PC時のオフセット（調整してOK）
+        slidesOffsetAfter: 200,
+        slidesPerGroup: 1.4
+      }
+    }
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.p-faq__item');
+  const singleOpen = false; // trueにすると常に1つだけ開く
+
+  items.forEach((item, i) => {
+    const btn = item.querySelector('.p-faq__question');
+    const panel = item.querySelector('.p-faq__answer');
+
+    // ARIA初期化
+    const panelId = panel.id || `faq-panel-${i+1}`;
+    panel.id = panelId;
+    btn.setAttribute('aria-controls', panelId);
+    btn.setAttribute('aria-expanded', 'false');
+
+    // 初期は閉
+    panel.style.height = '0px';
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+
+      if (singleOpen && !isOpen) {
+        // 他を閉じる
+        items.forEach(it => {
+          if (it !== item && it.classList.contains('is-open')) {
+            collapse(it);
+          }
+        });
+      }
+
+      isOpen ? collapse(item) : expand(item);
+    });
+
+    function expand(targetItem) {
+      const button = targetItem.querySelector('.p-faq__question');
+      const content = targetItem.querySelector('.p-faq__answer');
+
+      targetItem.classList.add('is-open');
+      button.setAttribute('aria-expanded', 'true');
+
+      // スムーズ開
+      content.style.height = 'auto';
+      const h = content.scrollHeight;
+      content.style.height = '0px';
+      // 次フレームで適用
+      requestAnimationFrame(() => {
+        content.style.height = h + 'px';
+      });
+
+      content.addEventListener('transitionend', onEnd);
+      function onEnd(e) {
+        if (e.propertyName === 'height') {
+          content.style.height = 'auto'; // 自然な高さに戻す
+          content.removeEventListener('transitionend', onEnd);
+        }
+      }
+    }
+
+    function collapse(targetItem) {
+      const button = targetItem.querySelector('.p-faq__question');
+      const content = targetItem.querySelector('.p-faq__answer');
+
+      button.setAttribute('aria-expanded', 'false');
+      targetItem.classList.remove('is-open');
+
+      // 現在のauto高さを数値化してから0へ
+      content.style.height = content.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        content.style.height = '0px';
+      });
+    }
+  });
+});
+</script>
+
+

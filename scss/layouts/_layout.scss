@@ -1,0 +1,87 @@
+// 共通スタイル
+@use "../utils/variables" as g;
+@use "../utils/mixin" as m;
+
+.l-main {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  @media only screen and (min-width: g.$desktop-breakpoint-md) {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  &.full {
+    padding: 0;
+  }
+
+  .l-pagebody {
+    width: 100%;
+    @include m.mx-auto;
+
+    &.box {
+      //width: 980px;
+      width: 1000px;
+    }
+  }
+}
+
+.p-section {
+  width: 100%;
+  @include m.mx-auto;
+  position: relative;
+  //padding: 65px 0;
+  padding: 55px 0 55px;
+  @media only screen and (min-width: g.$desktop-breakpoint-md) {
+    //padding: 125px 0;
+    padding: 95px 0;
+  }
+}
+
+.container-box {
+  width: 100%;
+  @include m.mx-auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 1065px;
+   
+  @media only screen and (min-width: g.$desktop-breakpoint-md) {
+    max-width: 1065px;
+  }
+
+  &.container-md-box {
+    padding-left: 0;
+    padding-right: 0;
+    @media only screen and (min-width: g.$desktop-breakpoint-md) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+
+.container-fluid {
+  width: 100%;
+}
+
+.row-center {
+  display: flex;
+  align-items: center;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

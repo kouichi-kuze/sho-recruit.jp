@@ -1,0 +1,16 @@
+# ===== Server Side Includes (SSI) を .html にも適用 =====
+
+# 1. SSI を有効化するオプションをオン
+Options +Includes
+
+# 2. .shtml と .html の両方を解析対象に
+AddType text/html .shtml .html
+AddHandler server-parsed .shtml .html
+AddOutputFilter INCLUDES .shtml .html
+
+# 3. ディレクトリアクセス時の優先ファイル順序
+DirectoryIndex index.html index.shtml
+
+# 4. SSI のコメント外し例（必要に応じて）
+#   <!--#include virtual="/inc/header.html" -->
+#   <!--#include virtual="/inc/footer.html" -->

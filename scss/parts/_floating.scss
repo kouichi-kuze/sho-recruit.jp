@@ -1,0 +1,39 @@
+// 共通スタイル
+@use "../utils/variables" as g;
+@use "../utils/mixin" as m;
+
+
+.floating-btn {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+  z-index: 1000;
+  background-color: g.$white;
+  border-radius: 11px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  max-width: 358px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(g.$black ,0.1);
+  border: solid 0.5px #B2B2B2;
+  @media only screen and (min-width: g.$desktop-breakpoint-md) {
+    bottom: 30px;
+    right: 30px;
+    left: auto;
+    transform: translateX(0);
+    width: 290px;
+  }
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+}

@@ -1,0 +1,95 @@
+// 共通スタイル
+@use "../utils/variables" as g;
+@use "../utils/mixin" as m;
+
+///* ベースボタン */
+.c-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 18px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1;
+    font-weight: 400;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    -webkit-tap-highlight-color: transparent;
+    color: g.$white;
+    height: 60px;
+    width: 90%;
+    max-width: 300px;
+    @media (min-width: g.$desktop-breakpoint-md) {
+        height: 90px;
+        max-width: 391px;
+        font-size: 1.0625rem;
+        padding: 0 35px;
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+
+    &:disabled,
+    &[aria-disabled="true"] {
+        opacity: .5;
+        pointer-events: none;
+    }
+
+    &:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
+    }
+}
+
+///プライマリ（グラデーション）
+.c-button--primary {
+    background: linear-gradient(
+        90deg,
+        #00141B 0%,
+        #245073 57%,
+        #2E5A77 100%
+    );
+    //box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+
+    &:hover {
+        //box-shadow: 0 8px 20px rgba(0, 0, 0, .24);
+        opacity: .96; /* うっすらだけ変化 */
+    }
+}
+
+///* アイコン（右側） */
+.c-button__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    @media (min-width: g.$desktop-breakpoint-md) {
+        right: 20px;
+        width: 46px;
+        height: 46px;
+    }
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .c-button {
+        transition: none;
+    }
+}
