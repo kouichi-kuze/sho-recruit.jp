@@ -154,14 +154,14 @@
             letter-spacing: -0.04em;
             margin-bottom: 70px;
             @media (min-width: g.$desktop-breakpoint-md) {
-                font-size: 3.75rem;
+                font-size: 4.25rem;
                 margin-bottom: 50px;
             }
             .font-sm {
                 font-size: 1.375rem;
                 letter-spacing: -0.02em;
                 @media (min-width: g.$desktop-breakpoint-md) {
-                    font-size: 2.75rem;
+                    font-size: 3.375rem;
                 }
             }
         }
@@ -173,6 +173,7 @@
             font-size: 14px;
             text-align: center;
             //letter-spacing: 2.2;
+            line-height: 2.2;
             @media (min-width: g.$desktop-breakpoint-md) {
                 font-size: 18px;
             }

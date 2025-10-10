@@ -26,5 +26,8 @@ yarn-error.log*
 * text=auto eol=lf
 '@ | Out-File -Encoding UTF8 .gitattributes
 
-
 index-templa.html
+
+# CSS
+assets/css/style.css
+src/scss/style.css
