@@ -31,7 +31,8 @@
                 z-index: -1;
                 @media (min-width: g.$desktop-breakpoint-md) {
                     background-image: url(/assets/img/top/intro_bg_main.svg);
-                    background-position: center bottom;
+                    background-position: center top;
+                    height: 90%;
                 }
         }
 
@@ -44,6 +45,13 @@
         .p-intro-parts {
             position: absolute;
             top: 0;
+            img {
+            //display: block;
+            //will-change: clip-path;
+            /* 下が100%マスク = 全隠し（下→上に開く準備） */
+            //clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+            }
+
             &.p-intro-parts-01 {
                 width: 7%;
                 left: 0;
@@ -71,22 +79,23 @@
             &.p-intro-parts-03 {
                 width: 72%;
                 left: 14%;
+                top: 0;
                 @media (min-width: g.$desktop-breakpoint-md) {
-                    //width: 29%;
                     width: 60%;
                     left: 21.1%;
-                    //top: 4.3%;
                     z-index: 3;
                 }
             }
 
             &.p-intro-parts-04 {
-                //@media (min-width: g.$desktop-breakpoint-md) {
-                    //width: 21%;
-                    //left: 50%;
-                    //top: 0;
-                    //z-index: 3;
-                //}
+                width: 72%;
+                left: 14%;
+                top: 0;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    width: 60%;
+                    left: 21.1%;
+                    z-index: 3;
+                }
             }
 
             &.p-intro-parts-05 {
@@ -163,7 +172,7 @@
             font-weight: 400;
             font-size: 14px;
             text-align: center;
-            letter-spacing: 2.2;
+            //letter-spacing: 2.2;
             @media (min-width: g.$desktop-breakpoint-md) {
                 font-size: 18px;
             }
@@ -351,6 +360,21 @@
         margin: 24px auto 0;
     }
 
+    //introアニメーション用
+
+    .p-intro__lead { visibility: hidden; } /* 最初は隠す（JSで即表示に） */
+    .p-intro__text,
+    .p-intro__movie-wrap,
+    .p-intro__btn { opacity: 0; transform: translateY(12px); }
+
+    /* マスク解除用のラッパ（JSで生成） */
+    .p-intro__lead .lead-rest {
+    display: inline-block;
+    clip-path: inset(0 0 100% 0); /* 上→下に開く起点 */
+    will-change: clip-path;
+    }
+
+
     //　WORK
     .p-section--work {
         .p-section__inner {
@@ -411,7 +435,7 @@
         }
 
         .text-en {
-            display: block;
+            display: inline-block;
             font-family: g.$font-public-sans;
             font-style: italic;
             font-weight: 500;
@@ -446,6 +470,8 @@
             grid-template-columns: repeat(1,1fr);
             gap: 20px;
             margin-bottom: 40px;
+            position: relative;
+            z-index: 5;
             @media (min-width: g.$desktop-breakpoint-md) {
                 grid-template-columns: repeat(3,1fr);
                 gap: 30px;
@@ -591,7 +617,7 @@
         }
 
         .text-en {
-            display: block;
+            display: inline-block;
             font-family: g.$font-public-sans;
             font-style: italic;
             font-weight: 500;
@@ -613,6 +639,7 @@
     .p-interview-wrap {
         position: relative;
         overflow: hidden;
+        z-index: 5;
     }
 
     .p-interview {
@@ -640,6 +667,25 @@
                 padding: 35px 24px;
             }
         }
+    }
+
+    .p-interview.swiper {
+        overflow: visible;
+        //padding-left: 65px;
+        //padding-right: 65px;
+        padding-right: 60px;
+        padding-left: max(20px, calc((100vw - 1065px) / 2 + 20px));
+        @media (min-width: 768px) {
+            padding-right: 120px;
+            padding-left: max(20px, calc((100vw - 1065px) / 2 + 20px));
+        }
+    }
+
+    .p-interview__card.swiper-slide {
+        width: clamp(260px, 260px, 280px);
+        @media (min-width: 768px) {
+            width: clamp(253px, 380px, 380px);
+        }        
     }
 
     .p-interview__card img {
@@ -755,13 +801,23 @@
     .p-interview__arrow.is-prev { 
         left: 15px;
         @media (min-width: g.$desktop-breakpoint-md) {
-            left: 7%;
+            //left: 7%;
+            left: 30px;
+        }
+        @media (min-width: g.$desktop-breakpoint-xl) {
+            //right: 13px;
+            left: 100px;
         }
     }
     .p-interview__arrow.is-next { 
         right: 15px;
         @media (min-width: g.$desktop-breakpoint-md) {
-            right: 13px;
+            //right: 13px;
+            right: 100px;
+        }
+        @media (min-width: g.$desktop-breakpoint-xl) {
+            //right: 13px;
+            right: 100px;
         }
     }
 
@@ -866,7 +922,7 @@
         }
 
         .text-en {
-            display: block;
+            display: inline-block;
             font-family: g.$font-public-sans;
             font-style: italic;
             font-weight: 500;
@@ -1050,7 +1106,7 @@
         }
 
         .text-en {
-            display: block;
+            display: inline-block;
             font-family: g.$font-public-sans;
             font-style: italic;
             font-weight: 500;
@@ -1220,7 +1276,7 @@
             @media (min-width: g.$desktop-breakpoint-md) {
                 margin-bottom: 30px;
             }
-            .text-jp {
+            .text-jp-roundtable {
                 display: inline-block;
                 font-weight: 300;
                 font-size: 1.0625rem;
@@ -1257,7 +1313,7 @@
 
             }
 
-            .text-en {
+            .text-en-roundtable {
                 display: block;
                 font-family: g.$font-public-sans;
                 font-style: italic;
@@ -1553,7 +1609,7 @@
         }
 
         .text-en {
-            display: block;
+            display: inline-block;
             font-family: g.$font-public-sans;
             font-style: italic;
             font-weight: 500;
@@ -1681,7 +1737,7 @@
     .bg-parts-item {
         position: absolute;
         z-index: 2;
-
+        will-change: transform;
         &.bg-parts-l-01 {
             display: none;
             @media (min-width: g.$desktop-breakpoint-md) {
@@ -1827,5 +1883,33 @@
             }
         }
     }
-        
+
+ 
+   /* —— マスク/グラデ同期の共通（roundtableは含めない） —— */
+.text-en,
+.text-jp {
+  display: inline-block;
+  --reveal: 0%;
+  will-change: clip-path, background-size;
+}
+.text-en { position: relative; display: inline-block; }
+
+.text-en > .reveal {
+  display: inline-block;
+  background: linear-gradient(76deg, #691902 0%, #954802 100%);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: var(--reveal, 0%) 100%;   /* 可視幅に合わせてグラデを縮める */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  /* ← このマスクで未公開部分を確実に隠す */
+  clip-path: inset(0 calc(100% - var(--reveal, 0%)) 0 0);
+  will-change: clip-path, background-size;
+}
+
+.text-jp { clip-path: inset(calc(100% - var(--reveal)) 0 0 0); }
+    
 }

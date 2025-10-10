@@ -1,0 +1,15 @@
+// 共通スタイル
+@use "../utils/variables" as g;
+@use "../utils/mixin" as m;
+
+.kv-dammy {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -50px;
+  max-width: 1440px;
+  @media (min-width: g.$desktop-breakpoint-md) {
+    margin-top: 0;
+  }
+
+}

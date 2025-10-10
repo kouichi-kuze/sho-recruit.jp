@@ -158,48 +158,32 @@
   }
 
   // ========= 3) Interview Swiper =========
-  function initInterviewSwiper(){
+  function initInterviewSwiper() {
     var el = document.querySelector('.js-interview-swiper');
-    if (!el) return;
-    if (typeof Swiper === 'undefined') return; // 依存関係ガード
-
-    // ナビ要素が無いページでも落ちないように
-    var nextEl = document.querySelector('.js-interview-next') || null;
-    var prevEl = document.querySelector('.js-interview-prev') || null;
+    if (!el || typeof Swiper === 'undefined') return;
 
     var swiper = new Swiper('.js-interview-swiper', {
-      slidesPerView: 1.5,
-      spaceBetween: 20,
+      slidesPerView: 'auto',       // ← ここを変更
+      spaceBetween: 30,
       centeredSlides: false,
       loop: false,
       watchOverflow: true,
       grabCursor: true,
       speed: 500,
       resistanceRatio: 0.85,
-      slidesOffsetBefore: 65,
-      slidesOffsetAfter: 65,
       slidesPerGroup: 1,
-
       navigation: {
-        nextEl: nextEl,
-        prevEl: prevEl
+        nextEl: document.querySelector('.js-interview-next') || null,
+        prevEl: document.querySelector('.js-interview-prev') || null
       },
-
-      keyboard: { enabled: true },
       a11y: { enabled: true },
-
+      keyboard: { enabled: true },
       breakpoints: {
         768: {
-          slidesPerView: 3.6,
-          spaceBetween: 24,
-          slidesOffsetBefore: 200,
-          slidesOffsetAfter: 200,
-          slidesPerGroup: 1.4
+          spaceBetween: 24
         }
       }
     });
-
-    // 必要であれば外から参照可能に
     window.SHO.interviewSwiper = swiper;
   }
 
@@ -309,4 +293,185 @@ document.addEventListener('DOMContentLoaded', function () {
       behavior: 'smooth'
     });
   });
+});
+
+window.addEventListener('load', function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 1) 「残りテキスト」をJSでラップ（.title-shosekkei-group の後ろ全部）
+  (function wrapLeadRemainder() {
+    const lead = document.querySelector('.p-intro__lead');
+    if (!lead) return;
+    const title = lead.querySelector('.title-shosekkei-group');
+    if (!title) return;
+
+    // 既に作成済みなら何もしない
+    if (lead.querySelector('.lead-rest')) return;
+
+    const restWrapper = document.createElement('span');
+    restWrapper.className = 'lead-rest';
+
+    // title の次の兄弟ノード以降をすべて lead-rest に移動
+    let node = title.nextSibling;
+    const buffer = [];
+    while (node) {
+      const next = node.nextSibling;
+      buffer.push(node);
+      node = next;
+    }
+    buffer.forEach(n => restWrapper.appendChild(n));
+    lead.appendChild(restWrapper);
+  })();
+
+  // 2) ビルが建つ順番
+  const order = [
+    '.p-intro-parts-04',
+    '.p-intro-parts-03',
+    '.p-intro-parts-05',
+    '.p-intro-parts-06',
+    '.p-intro-parts-02',
+    '.p-intro-parts-01'
+  ];
+
+  // 初期セット（FOUC対策）
+  const lead = document.querySelector('.p-intro__lead');
+  const title = document.querySelector('.p-intro__lead .title-shosekkei-group');
+  const rest  = document.querySelector('.p-intro__lead .lead-rest');
+
+  if (lead)  gsap.set(lead,  { visibility: 'visible' });
+  if (title) gsap.set(title, { opacity: 0, y: 0 });
+  if (rest)  gsap.set(rest,  { clipPath: 'inset(0 0 100% 0)' }); // 上→下
+
+  order.forEach(sel => {
+    const el = document.querySelector(sel);
+    if (el) gsap.set(el, { y: '100vh', opacity: 0 });
+  });
+
+  //gsap.set(['.p-intro__text', '.p-intro__movie-wrap', '.p-intro__btn'], { opacity: 0, y: 12 });
+  gsap.set(['.p-intro__text', '.p-intro__movie-wrap', '.p-intro__btn'], { opacity: 0, y: 0 });
+
+  // 3) タイムライン：.p-section--intro で発火
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.p-section--intro',
+      start: 'top 80%',
+      toggleActions: 'play none none reverse',
+      // markers: true,
+    }
+  });
+
+  // 3-1) 04→03→05→06→02→01 を 100vh→0 で順に
+  order.forEach((sel, i) => {
+    const el = document.querySelector(sel);
+    if (!el) return;
+    tl.to(el, {
+      y: 0,
+      opacity: 1,
+      //duration: 1.0,
+      duration: 0.8,
+      ease: 'power2.out'
+    //}, i * 0.25); // 着工の間隔
+      }, i * 0.15);
+  });
+
+  // 3-2) タイトル（英字）フェードイン
+  if (title) {
+    tl.to(title, {
+      opacity: 1,
+      y: 0,
+      duration: 0.5,
+      ease: 'power2.out'
+    }, '>-0.05'); // 直前とほぼ連続で
+  }
+
+  // 3-3) 残りの見出しを上→下にマスク解除
+  if (rest) {
+    tl.to(rest, {
+      clipPath: 'inset(0 0 0% 0)',
+      duration: 0.6,
+      ease: 'power2.out'
+    }, '>-0.1'); // タイトル直後に重ね気味で
+  }
+
+  // 3-4) 残り要素をフェードイン（本文→動画→ボタン等）
+  tl.to('.p-intro__text',       { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '+=0.05')
+    .to('.p-intro__movie-wrap', { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '+=0.05')
+    .to('.p-intro__btn',        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '+=0.05');
+});
+
+window.addEventListener('load', function () {
+  if (!window.gsap || !window.ScrollTrigger) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  // 先に .text-en をラップ
+  (function wrapTextEn() {
+    document.querySelectorAll('.text-en').forEach(el => {
+      if (el.querySelector(':scope > .reveal')) return;
+      const html = el.innerHTML;
+      el.innerHTML = `<span class="reveal">${html}</span>`;
+    });
+  })();
+
+  // --- パララックス ---
+  gsap.utils.toArray('.bg-parts-item').forEach(el => {
+    const speed = parseFloat(el.getAttribute('data-speed') || -2.5);
+    gsap.fromTo(el, { yPercent: 0 }, {
+      yPercent: speed * 300,
+      ease: "none",
+      scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 5 }
+    });
+  });
+
+  // --- 見出しマスク連動（roundtable除外） ---
+  gsap.utils.toArray(
+    '.title-work-headding, .title-interview-headding, .title-data-headding, .title-environment-headding, .title-faq-headding'
+  ).forEach((wrap) => {
+    const jpList = wrap.querySelectorAll('.text-jp');
+    const enList = wrap.querySelectorAll('.text-en');
+
+    jpList.forEach((jp) => {
+      gsap.set(jp, { css: { '--reveal': '0%' } });
+      gsap.to(jp, {
+        css: { '--reveal': '100%' },
+        duration: 1.0,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: jp,
+          start: 'top 65%',
+          once: true,
+          onEnter: () => {
+            // JP 入場後に EN を発火している箇所
+            wrap.querySelectorAll('.text-en').forEach((en, idx) => {
+              const target = en.querySelector(':scope > .reveal');   // ← 追加
+              gsap.set(target, { css: { '--reveal': '0%' } });       // ← 置換
+              gsap.to(target, {
+                css: { '--reveal': '100%' },
+                duration: 1.0,
+                ease: 'power2.out',
+                delay: 0.2 + idx * 0.08
+              });
+            });
+          }
+        }
+      });
+    });
+
+    if (jpList.length === 0) {
+      enList.forEach((en) => {
+        const target = en.querySelector(':scope > .reveal');   // ← 追加
+        gsap.set(target, { css: { '--reveal': '0%' } });       // ← 置換
+        gsap.to(target, {
+          css: { '--reveal': '100%' },
+          duration: 1.2,                                       // ← 0.8 → 1.2 に統一
+          ease: 'power2.out',
+          scrollTrigger: { trigger: en, start: 'top 80%', once: true }
+        });
+      });
+    }
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => ScrollTrigger.refresh());
+  }
 });

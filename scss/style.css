@@ -1184,9 +1184,25 @@ img {
   }
 }
 
+.kv-dammy {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -50px;
+  max-width: 1440px;
+}
+@media (min-width: 768px) {
+  .kv-dammy {
+    margin-top: 0;
+  }
+}
+
 #home {
   font-family: "Noto Sans JP", sans-serif;
+  /* 最初は隠す（JSで即表示に） */
+  /* マスク解除用のラッパ（JSで生成） */
   /* 低モーション配慮 */
+  /* —— マスク/グラデ同期の共通（roundtableは含めない） —— */
 }
 #home .p-section--intro {
   position: relative;
@@ -1213,7 +1229,8 @@ img {
 @media (min-width: 768px) {
   #home .p-section--intro:after {
     background-image: url(/assets/img/top/intro_bg_main.svg);
-    background-position: center bottom;
+    background-position: center top;
+    height: 90%;
   }
 }
 #home .p-section--intro .p-section__inner {
@@ -1224,6 +1241,9 @@ img {
 #home .p-section--intro .p-intro-parts {
   position: absolute;
   top: 0;
+}
+#home .p-section--intro .p-intro-parts img {
+  /* 下が100%マスク = 全隠し（下→上に開く準備） */
 }
 #home .p-section--intro .p-intro-parts.p-intro-parts-01 {
   width: 7%;
@@ -1254,9 +1274,22 @@ img {
 #home .p-section--intro .p-intro-parts.p-intro-parts-03 {
   width: 72%;
   left: 14%;
+  top: 0;
 }
 @media (min-width: 768px) {
   #home .p-section--intro .p-intro-parts.p-intro-parts-03 {
+    width: 60%;
+    left: 21.1%;
+    z-index: 3;
+  }
+}
+#home .p-section--intro .p-intro-parts.p-intro-parts-04 {
+  width: 72%;
+  left: 14%;
+  top: 0;
+}
+@media (min-width: 768px) {
+  #home .p-section--intro .p-intro-parts.p-intro-parts-04 {
     width: 60%;
     left: 21.1%;
     z-index: 3;
@@ -1342,7 +1375,6 @@ img {
   font-weight: 400;
   font-size: 14px;
   text-align: center;
-  letter-spacing: 2.2;
 }
 @media (min-width: 768px) {
   #home .p-intro__text {
@@ -1544,6 +1576,21 @@ img {
           align-items: center;
   margin: 24px auto 0;
 }
+#home .p-intro__lead {
+  visibility: hidden;
+}
+#home .p-intro__text,
+#home .p-intro__movie-wrap,
+#home .p-intro__btn {
+  opacity: 0;
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+}
+#home .p-intro__lead .lead-rest {
+  display: inline-block;
+  clip-path: inset(0 0 100% 0); /* 上→下に開く起点 */
+  will-change: clip-path;
+}
 #home .p-section--work .p-section__inner {
   width: 100%;
   height: 100%;
@@ -1605,7 +1652,7 @@ img {
   right: 5px;
 }
 #home .p-section__title-work .text-en {
-  display: block;
+  display: inline-block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -1641,6 +1688,8 @@ img {
   grid-template-columns: repeat(1, 1fr);
   gap: 20px;
   margin-bottom: 40px;
+  position: relative;
+  z-index: 5;
 }
 @media (min-width: 768px) {
   #home .p-works__list {
@@ -1806,7 +1855,7 @@ img {
   right: 5px;
 }
 #home .p-section__title-interview .text-en {
-  display: block;
+  display: inline-block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -1828,6 +1877,7 @@ img {
 #home .p-interview-wrap {
   position: relative;
   overflow: hidden;
+  z-index: 5;
 }
 #home .p-interview {
   position: relative;
@@ -1856,6 +1906,25 @@ img {
 @media (min-width: 768px) {
   #home .p-interview__card a {
     padding: 35px 24px;
+  }
+}
+#home .p-interview.swiper {
+  overflow: visible;
+  padding-right: 60px;
+  padding-left: max(20px, (100vw - 1065px) / 2 + 20px);
+}
+@media (min-width: 768px) {
+  #home .p-interview.swiper {
+    padding-right: 120px;
+    padding-left: max(20px, (100vw - 1065px) / 2 + 20px);
+  }
+}
+#home .p-interview__card.swiper-slide {
+  width: 260px;
+}
+@media (min-width: 768px) {
+  #home .p-interview__card.swiper-slide {
+    width: 380px;
   }
 }
 #home .p-interview__card img {
@@ -1984,7 +2053,12 @@ img {
 }
 @media (min-width: 768px) {
   #home .p-interview__arrow.is-prev {
-    left: 7%;
+    left: 30px;
+  }
+}
+@media (min-width: 1280px) {
+  #home .p-interview__arrow.is-prev {
+    left: 100px;
   }
 }
 #home .p-interview__arrow.is-next {
@@ -1992,7 +2066,12 @@ img {
 }
 @media (min-width: 768px) {
   #home .p-interview__arrow.is-next {
-    right: 13px;
+    right: 100px;
+  }
+}
+@media (min-width: 1280px) {
+  #home .p-interview__arrow.is-next {
+    right: 100px;
   }
 }
 #home .p-interview__arrow-icon {
@@ -2112,7 +2191,7 @@ img {
   right: 5px;
 }
 #home .p-section__title-data .text-en {
-  display: block;
+  display: inline-block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -2320,7 +2399,7 @@ img {
   right: 5px;
 }
 #home .p-section__title-environment .text-en {
-  display: block;
+  display: inline-block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -2513,7 +2592,7 @@ img {
     margin-bottom: 30px;
   }
 }
-#home .p-roundtable .p-section__title-roundtable .text-jp {
+#home .p-roundtable .p-section__title-roundtable .text-jp-roundtable {
   display: inline-block;
   font-weight: 300;
   font-size: 1.0625rem;
@@ -2523,30 +2602,30 @@ img {
   padding: 15px 15px 18px;
 }
 @media (min-width: 768px) {
-  #home .p-roundtable .p-section__title-roundtable .text-jp {
+  #home .p-roundtable .p-section__title-roundtable .text-jp-roundtable {
     font-weight: 400;
     font-size: 1.375rem;
     padding: 15px 15px 18px;
   }
 }
-#home .p-roundtable .p-section__title-roundtable .text-jp:before, #home .p-roundtable .p-section__title-roundtable .text-jp:after {
+#home .p-roundtable .p-section__title-roundtable .text-jp-roundtable:before, #home .p-roundtable .p-section__title-roundtable .text-jp-roundtable:after {
   content: "";
   background-color: #BCC2CB;
   width: 26px;
   height: 26px;
   position: absolute;
 }
-#home .p-roundtable .p-section__title-roundtable .text-jp:before {
+#home .p-roundtable .p-section__title-roundtable .text-jp-roundtable:before {
   height: 1px;
   bottom: 10px;
   right: 0;
 }
-#home .p-roundtable .p-section__title-roundtable .text-jp:after {
+#home .p-roundtable .p-section__title-roundtable .text-jp-roundtable:after {
   width: 1px;
   bottom: 5px;
   right: 5px;
 }
-#home .p-roundtable .p-section__title-roundtable .text-en {
+#home .p-roundtable .p-section__title-roundtable .text-en-roundtable {
   display: block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
@@ -2561,7 +2640,7 @@ img {
   line-height: 1;
 }
 @media (min-width: 768px) {
-  #home .p-roundtable .p-section__title-roundtable .text-en {
+  #home .p-roundtable .p-section__title-roundtable .text-en-roundtable {
     font-size: 3.75rem;
   }
 }
@@ -2873,7 +2952,7 @@ img {
   right: 5px;
 }
 #home .p-section__title-faq .text-en {
-  display: block;
+  display: inline-block;
   font-family: "Public Sans", sans-serif;
   font-style: italic;
   font-weight: 500;
@@ -3009,6 +3088,7 @@ img {
 #home .bg-parts-item {
   position: absolute;
   z-index: 2;
+  will-change: transform;
 }
 #home .bg-parts-item.bg-parts-l-01 {
   display: none;
@@ -3169,6 +3249,33 @@ img {
   #home .bg-parts-item.bg-parts-r-04-sp {
     display: none;
   }
+}
+#home .text-en,
+#home .text-jp {
+  display: inline-block;
+  --reveal: 0%;
+  will-change: clip-path, background-size;
+}
+#home .text-en {
+  position: relative;
+  display: inline-block;
+}
+#home .text-en > .reveal {
+  display: inline-block;
+  background: linear-gradient(76deg, #691902 0%, #954802 100%);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: var(--reveal, 0%) 100%; /* 可視幅に合わせてグラデを縮める */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  /* ← このマスクで未公開部分を確実に隠す */
+  clip-path: inset(0 calc(100% - var(--reveal, 0%)) 0 0);
+  will-change: clip-path, background-size;
+}
+#home .text-jp {
+  clip-path: inset(calc(100% - var(--reveal)) 0 0 0);
 }
 
 .c-button {
