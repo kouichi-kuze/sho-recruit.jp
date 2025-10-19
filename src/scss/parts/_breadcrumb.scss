@@ -1,0 +1,71 @@
+// 共通スタイル
+@use "../utils/variables" as g;
+@use "../utils/mixin" as m;
+
+.breadcrumb-wrap {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  @media (min-width: g.$desktop-breakpoint-md) {
+    width: 100%;
+  }
+
+  &.breadcrumb-wrap-02 {
+    position: absolute;
+    left: 20px;
+    top: -70px;
+    z-index: 10;
+    @media (min-width: g.$desktop-breakpoint-md) {
+      left: 20px;
+      top: 10px;
+    }
+
+  }
+
+}
+
+.breadcrumb {
+  width: auto;
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+    @media (min-width: g.$desktop-breakpoint-md) {
+      font-size: 0.875rem;
+    }
+    @media (min-width: g.$desktop-breakpoint-md) {
+      font-size: 1rem;
+    }
+    & + li::before {
+      content: ">"; // 区切りマーク（スラッシュでもOK）
+      margin: 0 0.5rem;
+      color: #707070;
+    }
+
+    &[aria-current="page"] {
+      pointer-events: none;
+      font-weight: 500;
+      font-size: 0.75rem;
+      color: #274374;
+      
+    }
+  }
+
+  a {
+    color: #707070;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
