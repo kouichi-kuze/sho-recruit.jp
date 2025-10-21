@@ -188,7 +188,7 @@
   }
 
   // ========= 3) Interview Swiper =========
-  function initInterviewSwiper() {
+  function initpageInterviewSwiper() {
     var el = document.querySelector('.js-page-interview-swiper');
     if (!el || typeof Swiper === 'undefined') return;
 
@@ -296,6 +296,7 @@
     initHeaderMenu();
     initIntroMovie();
     initInterviewSwiper();
+    initpageInterviewSwiper();
     initFaqAccordion();
   });
 
