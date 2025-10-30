@@ -462,7 +462,7 @@ window.addEventListener('load', function () {
   .title-environment-headding,
   .title-faq-headding,
   .title-schedule-headding,
-  .title-interview-career-headding,
+  .title-interview-career-headding
 `).forEach((wrap) => {
     const jpList = wrap.querySelectorAll('.text-jp');
     const enList = wrap.querySelectorAll('.text-en');

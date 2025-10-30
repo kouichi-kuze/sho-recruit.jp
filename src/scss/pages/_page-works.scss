@@ -148,8 +148,13 @@
     }
 
     /* PCのみ：サイドメニュー左に縦線 */
+    
+    .side-menu {
+        display: none;
+    }
     @media (min-width: 768px) {
         .side-menu {
+            display: block;
             width: 235px;
             position: sticky;
             top: 120px;

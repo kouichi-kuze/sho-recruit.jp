@@ -190,3 +190,17 @@
   white-space: nowrap;
   border: 0;
 }
+
+//a[target="_blank"]::after {
+a.target-blank::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.3em;
+  background: url("/assets/img/common/ico_link.svg") no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+
