@@ -45,7 +45,7 @@
         bottom: 55px;
         left: 20px;
         width: 100%;
-        max-width: 220px;
+        max-width: 600px;
         border-bottom: solid 1px #254574;
         padding-bottom: 5px;
         @media (min-width: g.$desktop-breakpoint-md) {
@@ -68,7 +68,7 @@
             position: relative;
             line-height: 1;
             padding: 15px 15px 18px 0;
-            width: 86px;
+            width: auto;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: auto;
                 font-weight: 400;
