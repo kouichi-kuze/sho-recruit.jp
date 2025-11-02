@@ -127,11 +127,10 @@
     .layout {
         @include m.mx-auto;
         width: 100%;
-        max-width: 1030px;
+        max-width: 1310px;
         padding-left: 20px;
         padding-right: 20px;
         box-sizing: border-box;
-        padding: 60px 20px;
         @media (min-width: g.$desktop-breakpoint-md) {
             justify-content: space-between;
             align-items: flex-start;
@@ -142,58 +141,93 @@
     }
 
      .main-contents {
-        width: 100%;
-    }
-
-
-    .page-navs {
-        margin-bottom: 60px;
+        
         @media (min-width: g.$desktop-breakpoint-md) {
-            margin-bottom: 100px;
+            width: calc(100% - 235px);
         }
     }
 
-    .page-nav-list {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        .page-nav-list-item {
-            font-size: 0.875rem;
+    /* PCのみ：サイドメニュー左に縦線 */
+    
+    .side-menu {
+        display: none;
+    }
+    @media (min-width: 768px) {
+        .side-menu {
+            display: block;
+            width: 235px;
+            position: sticky;
+            top: 120px;
+        }
+
+        .side-nav {
             position: relative;
-            @media (min-width: g.$desktop-breakpoint-md) {
-                font-size: 0.875rem;
-            }
-            @media (min-width: g.$desktop-breakpoint-md) {
-                font-size: 0.75rem;
-            }
-            @media (min-width: g.$desktop-breakpoint-xl) {
-                font-size: 1.125rem;
+            padding-left: 20px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 6px;
+                top: 0;
+                bottom: 0;
+                width: 1px;
+                background: #274374;
             }
 
-            &::after {
-                content: "|";
-                margin: 0 10px;
+            ul {
+                list-style: none;
+                margin: 0;
                 padding: 0;
-                @media (min-width: g.$desktop-breakpoint-md) {
-                    font-size: 1.125rem;
-                    margin: 0 10px;
+
+                li {
+                    margin-left: 1rem;
+                    box-sizing: border-box;
+                    line-height: 2.2;
+                    a {
+                        text-decoration: none;
+                        color: #6D7A8E;
+                        font-size: 1rem;
+
+                        &.is-active {
+                            color: #274374;
+                            font-weight: 700;
+                            position: relative;
+
+                            &:before {
+                                content: "";
+                                width: 7px;
+                                height: 7px;
+                                border-radius: 50%;
+                                background-color: #274374;
+                                position: absolute;
+                                left: calc(-1rem - 17px);
+                                top: 50%;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                }
+
+                .side-nav-title-01,
+                .side-nav-title-02 {
+                    margin-left: 0;
+
+                    a {
+                        &.is-active {
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .side-nav-title-02 {
+                    margin-top: 20px;
                 }
             }
-
-            &:last-child {
-                &::after {
-                    display: none;
-                }                    
-            }
-
-            a {
-                color: #274374;
-                text-decoration: none;
-            }
         }
     }
+
 
     .title-section-works {
         position: relative;
@@ -236,14 +270,14 @@
             width: 101.29px;
             height: 100px;
             position: absolute;
-            left: 20px;
-            top: 3%;
+            left: -60px;
+            top: 5%;
             transform: translateY(-50%);
             z-index: 1;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: 185.95px;
                 height: 183.58px;
-                left: 40px;
+                left: -100px;
             }
         }
     }
@@ -303,7 +337,11 @@
         box-sizing: border-box;
         transition: all 0.3s ease;
         margin-bottom: 15px;
-        height: 370px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            flex: 0 0 calc((100% - (12px * 2)) / 3);
+            max-width: calc((100% - (12px * 2)) / 3);
+            margin-bottom: 0;
+        }
 
         &:last-child {
             margin-bottom: 0;
