@@ -217,6 +217,41 @@
     window.SHO.interviewSwiper = swiper;
   }
 
+  // ========= 3) Interview Swiper =========
+  function initpageofficetourSwiper() {
+    var el = document.querySelector('.js-page-office-tour-swiper');
+    if (!el || typeof Swiper === 'undefined') return;
+
+    var swiper = new Swiper('.js-page-office-tour-swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+      centeredSlides: true,
+      loop: false,
+      watchOverflow: true,
+      grabCursor: true,
+      speed: 500,
+      resistanceRatio: 0.85,
+      slidesPerGroup: 1,
+      navigation: {
+        nextEl: document.querySelector('.js-office-tour-footer-slider-next') || null,
+        prevEl: document.querySelector('.js-office-tour-footer-slider-prev') || null
+      },
+      pagination: {
+        el: '.swiper-pagination-footer-slider', // ← ここで指定
+        clickable: true,                        // ドットをクリック可能に
+      },
+       //a11y: { enabled: true },
+       //keyboard: { enabled: true },
+      breakpoints: {
+        768: {
+          spaceBetween: 24
+        }
+      }
+    });
+    window.SHO.interviewSwiper = swiper;
+  }
+  
+
   // ========= 4) FAQ アコーディオン =========
   function initFaqAccordion(){
     var items = document.querySelectorAll('.p-faq__item');
@@ -297,6 +332,7 @@
     initIntroMovie();
     initInterviewSwiper();
     initpageInterviewSwiper();
+    initpageofficetourSwiper();
     initFaqAccordion();
   });
 
@@ -462,6 +498,8 @@ window.addEventListener('load', function () {
   .title-environment-headding,
   .title-faq-headding,
   .title-schedule-headding,
+  .title-free-addres-heading,
+  .title-disaster-prevention-heading,
   .title-interview-career-headding
 `).forEach((wrap) => {
     const jpList = wrap.querySelectorAll('.text-jp');
