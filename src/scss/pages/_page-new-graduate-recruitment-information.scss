@@ -44,14 +44,17 @@
         bottom: 55px;
         left: 20px;
         width: 100%;
-        max-width: 220px;
+        max-width: 260px;
         border-bottom: solid 1px #254574;
         padding-bottom: 5px;
         @media (min-width: g.$desktop-breakpoint-md) {
-            width: 446.5px;
+            max-width: 500px;
             top: 45px;
             bottom: auto;
             left: 8%;
+        }
+        @media (min-width: g.$desktop-breakpoint-md) {
+            max-width: 750px;
         }
     }
 
@@ -67,7 +70,7 @@
             position: relative;
             line-height: 1;
             padding: 15px 15px 18px 0;
-            width: 86px;
+            width: auto;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: auto;
                 font-size: 1.125rem;
@@ -124,5 +127,433 @@
         @media (min-width: g.$desktop-breakpoint-md) {
             margin-top: 130px;
         }
+    }
+
+    .page-new-graduate-recruitment-information {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            margin-top: 130px;
+            margin-bottom: 130px;
+        }
+    }
+
+    .new-graduate-recruitment-information-intro__inner {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 20px;
+        z-index: 2;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            max-width: 760px;
+        }
+
+        .new-graduate-recruitment-information-intro__partscloss_01 {
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 40px;
+            z-index: 2;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 80px;
+                left: -10px;
+                top: 0;
+            }
+
+            svg {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        .new-graduate-recruitment-information-intro__partscloss_02 {
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+            width: 40px;
+            z-index: 5;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 80px;
+                right: -10px;
+                bottom: 0;
+            }
+
+            svg {
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+
+        .new-graduate-recruitment-information-intro-text {
+            font-size: 0.875rem;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+            line-height: 1.6;
+            padding: 40px 10px;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                font-size: 1.25rem;
+                padding: 50px 30px;
+            }
+        }
+    }
+
+    .p-outline {
+        background: #fff;
+    }
+    .p-outline__inner {
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px 10px 20px;
+        background: g.$grad-second;
+        border-radius: 10px;
+        position: relative;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            border-radius: 20px;
+            padding: 60px 20px 60px;
+        }
+        @media (min-width: g.$desktop-breakpoint-xl) {
+            padding: 60px 70px 60px;
+        }
+    }
+
+    .badge-number {
+        position: absolute;
+        width: 38%;
+        z-index: 3;
+        right: -20px;
+        top: -2%;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            width: 21%;
+            right: -20px;
+            top: -3%;
+        }
+
+        @media (min-width: g.$desktop-breakpoint-xl) {
+            width: 21%;
+            right: -9%;
+            top: -3%;
+        }
+    }
+
+    .p-outline__dl {
+        display: grid;
+        @media (min-width: g.$desktop-breakpoint-md) {
+        }
+    }
+    .p-outline__row {
+        display: grid;
+        border-bottom: solid 1px #6B7EA0;
+        padding: 20px 0;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            border-bottom: solid 1px #6B7EA0;
+            padding: 25px 0;
+            grid-template-columns: 220px 1fr;
+        }
+
+        dt {
+            font-weight: 600;
+            color: #274374;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                font-size: 1.25rem;
+                margin-bottom: 0;
+            }
+        }
+
+        dd {
+            font-weight: 400;
+            color: #333333;
+            font-size: 0.875rem;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                font-size: 1.25rem;
+            }
+
+            .p-outline__list {
+                text-indent: -1em;
+                padding-left: 1em;
+                font-size: 0.75rem;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .p-outline-bottom-card {
+        margin-top: 40px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            margin-top: 60px;
+        }
+
+        .p-outline-bottom-card-intro {
+            font-size: 1.0625rem;
+            font-weight: 400;
+            width: 100%;
+            text-align: center;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #274374;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                font-size: 1.125rem;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+        }
+
+        .p-outline-img__btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .p-recruitment-flow {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: 50px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            margin-top: 130px;
+        }
+    }
+
+    .title-recruitment-flow-heading {
+        margin-bottom: 40px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            margin-bottom: 60px;
+        }
+    }
+
+    .p-recruitment-flow-list {
+        .p-recruitment-flow-list-item {
+            position: relative;
+            max-width: 450px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                padding-left: 5%;
+                width: 100%;
+                max-width: 100%; 
+            }
+        }
+
+        .p-recruitment-flow-arrow {
+            padding: 30px 0;
+            width: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1;
+            margin-bottom: 0;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                padding: 40px 0;
+            }
+        }
+
+        .recruitment-flow-card {
+            background-color: #F5F6F8;
+            border-radius: 10px;
+            width: 100%;
+            display: block;
+            position: relative;
+            padding: 20px 15px;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                padding: 0;
+                padding-left: 80px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        }
+
+        .badge-number {
+            position: absolute;
+            left: 20px;
+            top: -5px;
+            width: 80px;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 120px;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+            }
+            @media (min-width: g.$desktop-breakpoint-lg) {
+                width: 140px;
+            }
+        }
+
+        .recruitment-flow-card-title {
+            width: 100%;
+            text-align: left;
+            padding-left: 100px;
+            color: linear-gradient(to top, #01141B 0%, #2E5A77 100%);
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 200px;
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .text-grad {
+                font-size: 1.25rem;
+                font-weight: 500;
+                background: linear-gradient(left, #01141B 0%, #2E5A77 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    font-size: 1.625rem;
+                }
+                @media (min-width: g.$desktop-breakpoint-xl) {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .recruitment-flow-card-list {
+            width: 100%;
+            padding: 30px 0 0 0 ;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: calc(100% - 200px);
+                padding: 25px 30px 25px 0;
+            }
+            @media (min-width: g.$desktop-breakpoint-xl) {
+                width: calc(100% - 200px);
+                padding: 25px 100px 25px 0;
+            }
+
+            .recruitment-flow-card-list-item {
+                position: relative;
+                font-weight: 500;
+                font-size: 1rem;
+                border-bottom: solid 1px #BBC2CC;
+                padding: 15px 60px 15px 30px;
+                line-height: 1.6;
+                display: flex;
+                align-items: center;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    font-size: 1.25rem;
+                    padding-left: 30px;
+                    padding: 20px 0 20px 30px;
+                }
+                @media (min-width: g.$desktop-breakpoint-lg) {
+                    font-size: 1.75rem;
+                }
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+
+                &:after {
+                    content: "";
+                    width: 17px;
+                    height: 10px;
+                    background-image: url(/assets/img/new-graduate-recruitment-information/ico_check.svg);
+                    background-size: 100%;
+                    background-position: center top;
+                    background-repeat: no-repeat;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    z-index: 2;
+                    transform: translateY(-50%);
+                    @media (min-width: g.$desktop-breakpoint-md) {
+                        width: 17px;
+                        height: 10px;
+                    }
+                }
+
+                .badgemail {
+                    position: relative;
+                    font-weight: 400;
+                    font-size: 0.875rem;
+                    background-color: #BBC2CC;
+                    color: #ffffff;
+                    width: 78px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 4px;
+                    margin-left: 10px;
+                    @media (min-width: g.$desktop-breakpoint-md) {
+                        font-size: 1rem;
+                        width: 78px;
+                        margin-left: 20px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .recruitment-flow-btn-card {
+        margin-top: 40px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            margin-top: 60px;
+        }
+
+        .p-recruitment-flow-img__btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+
+    .section-headers {
+        display: inline-flex;
+        flex-flow: column;
+        .text-en {
+                font-family: g.$font-public-sans;
+                font-size: 1rem;
+                font-style: italic;
+                font-weight: 500;
+                background: linear-gradient(81deg, #691902 0%, #954802 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .text-jp {
+                font-size: 1.25rem;
+                font-weight: 500;
+                line-height: 1;
+                position: relative;
+                padding: 5px 15px 18px 0;
+                @media (min-width: g.$desktop-breakpoint-md) {
+                    font-size: 2.25rem;
+                }
+
+                &:before,
+                &:after {
+                    content: "";
+                    background-color: #BCC2CB;
+                    width: 26px;
+                    height: 26px;
+                    position: absolute;
+                }
+
+                &:before {
+                    height: 1px;
+                    bottom: 10px;
+                    right: 0;
+                }
+
+                &:after {
+                    width: 1px;
+                    bottom: 5px;
+                    right: 5px;
+                }
+            }
     }
 }

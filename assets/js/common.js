@@ -502,6 +502,7 @@ window.addEventListener('load', function () {
   .title-disaster-prevention-heading,
   .title-photographs-heading,
   .title-entry-form-heading,
+  .title-recruitment-flow-heading,
   .title-interview-career-headding
 `).forEach((wrap) => {
     const jpList = wrap.querySelectorAll('.text-jp');
