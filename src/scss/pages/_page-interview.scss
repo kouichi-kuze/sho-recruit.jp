@@ -127,7 +127,8 @@
             font-size: 2rem;
         }
         @media (min-width: g.$desktop-breakpoint-xl) {
-            font-size: 2.875rem;
+            //font-size: 2.875rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
             padding-bottom: 30px;
         }
@@ -158,7 +159,8 @@
         }
 
         @media (min-width: g.$desktop-breakpoint-xl) {
-            font-size: 1.25rem;
+            //font-size: 1.25rem;
+            font-size: 1.125rem;
         }
     }
 
@@ -727,6 +729,10 @@
             @media (min-width: g.$desktop-breakpoint-md) {
                 flex-flow: row;    
                 padding: 45px 4%;
+            }
+
+            &.last-color {
+                background-color: #F4F8FF;
             }
 
             .career-step__left {
