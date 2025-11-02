@@ -607,3 +607,9 @@
   }
 
 }
+
+body:not(#home) {
+  .site-header {
+    transform: translateY(0) !important;
+  }
+}
