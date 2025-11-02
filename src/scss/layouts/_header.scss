@@ -3,13 +3,19 @@
 
 .site-header {
   position: sticky;
+  width: 100%;
   top: 0;
   z-index: 100;
   transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease, backdrop-filter .3s ease;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  overflow-x: clip;
+  //overflow-x: clip;
   //background-color: rgba(g.$white ,0.3);
+  //overflow-x: clip;  
+  //overflow-x: hidden;
+  @media (min-width: g.$desktop-breakpoint-lg) {
+    overflow-x: visible;
+  }
 
   &.is-blur {
     background-color: rgba(255, 255, 255, 0.25);
@@ -32,7 +38,7 @@
     border-bottom: 1px solid rgba(0,0,0,0.06);
     box-shadow: 0 4px 16px rgba(0,0,0,0.06);
   }
- 
+
   .site-header__inner {
     display: flex;
     align-items: center;
@@ -49,72 +55,63 @@
     @media (min-width: g.$desktop-breakpoint-lg) {
       padding: 12px 20px 5px;
     }
-  }
 
-  @media (min-width: g.$desktop-breakpoint-lg) {
-    .site-header__inner {
+    @media (min-width: g.$desktop-breakpoint-lg) {
       width: 100%;
     }
-  }
 
-  @media (min-width: g.$desktop-breakpoint-xxl) {
-    .site-header__inner {
+    @media (min-width: g.$desktop-breakpoint-xxl) {
       width: 100%;
       padding: 20px 20px 5px 70px;
     }
+
   }
 
+  
   .site-logo {
     position: relative;
     display: flex;
     //align-items: flex-end;
     align-items: flex-end;
     width: calc(91px + 75px + 8px);
-  }
-
-  @media (min-width: g.$desktop-breakpoint-xl) {
-    .site-logo {
-      width: calc(150px + 96px + 10px);
+    @media (min-width: g.$desktop-breakpoint-xl) {
+        width: calc(150px + 96px + 10px);
     }
-  }
 
-  .site-logo .site-logo-img {
-    width: 91px;
-    display: block;
-    
-    @media (min-width: g.$desktop-breakpoint-lg) {
-      margin-top: -15px; //グローバルナビスペース用
+    .site-logo-img {
+      width: 91px;
+      display: block;
+      
+      @media (min-width: g.$desktop-breakpoint-lg) {
+        margin-top: -15px; //グローバルナビスペース用
+      }
+
+      @media (min-width: g.$desktop-breakpoint-xl) {
+        width: 150px;
+      }
     }
-  }
 
-  @media (min-width: g.$desktop-breakpoint-xl) {
-    .site-logo .site-logo-img {
-      width: 150px;
+    .badge-recruit {
+      font-size: 10px;
+      color: #274374;
+      border: 1px solid #274374;
+      border-radius: 4px;
+      line-height: 1;
+      width: 75px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+
+      @media (min-width: g.$desktop-breakpoint-xl) {
+        font-size: 0.875rem;
+        width: 96px;
+        height: 26px;
+        margin-left: 10px;
+      }
     }
-  }
-
-  .site-logo .badge-recruit {
-    font-size: 10px;
-    color: #274374;
-    border: 1px solid #274374;
-    border-radius: 4px;
-    line-height: 1;
-    width: 75px;
-    height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 8px;
-  }
-
-  @media (min-width: g.$desktop-breakpoint-xl) {
-    .site-logo .badge-recruit {
-      font-size: 0.875rem;
-      width: 96px;
-      height: 26px;
-      margin-left: 10px;
-    }
-  }
+  }  
 
   .global-nav {
     position: relative;
@@ -271,12 +268,6 @@
   }
 
   @media (min-width: g.$desktop-breakpoint-lg) {
-    .global-nav .has-dropdown .nav-first-layer {
-      //margin-bottom: 15px;
-    }
-  }
-
-  @media (min-width: g.$desktop-breakpoint-lg) {
     .global-nav .has-dropdown:hover > .nav-first-layer::after,
     .global-nav .has-dropdown:focus-within > .nav-first-layer::after {
       transform: scaleX(1);
@@ -303,16 +294,14 @@
     white-space: normal;
     overflow-wrap: anywhere;
 
-  }
-
-  @media (min-width: g.$desktop-breakpoint-lg) {
-    .global-nav .has-dropdown .submenu {
+    @media (min-width: g.$desktop-breakpoint-lg) {
       padding: 20px 0;
       min-width: 200px;
       max-width: calc(100vw - 40px);
     }
   }
 
+  
   .global-nav .has-dropdown .submenu li {
     margin: 0;
     padding: 0;
@@ -363,7 +352,7 @@
       position: fixed;
       left: 0;
       top: 0;
-      width: 100vw;
+      width: 100%;
       //background: g.$white;
       background-image: linear-gradient(-145deg, #3975BF 0%, #ADADAD 100%);
       box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
@@ -415,14 +404,8 @@
     }
   }
 
-  @media (max-width: g.$desktop-breakpoint_lg) {
-    .global-nav .has-dropdown .submenu li a {
-      text-decoration: none;
-    }
-  }
-
   .nav-first-layer {
-    .ico-nav-01 {               /* ← アイコンにtransitionを置く */
+    .ico-nav-01 {
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
