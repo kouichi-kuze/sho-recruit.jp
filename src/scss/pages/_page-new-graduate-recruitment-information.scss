@@ -213,7 +213,11 @@
     }
 
     .p-outline {
-        background: #fff;
+        background: g.$white;
+        padding-top: 30px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            padding-top: 40px;
+        }
     }
     .p-outline__inner {
         margin: 0 auto;
@@ -228,25 +232,6 @@
         }
         @media (min-width: g.$desktop-breakpoint-xl) {
             padding: 60px 70px 60px;
-        }
-    }
-
-    .badge-number {
-        position: absolute;
-        width: 38%;
-        z-index: 3;
-        right: -20px;
-        top: -2%;
-        @media (min-width: g.$desktop-breakpoint-md) {
-            width: 21%;
-            right: -20px;
-            top: -3%;
-        }
-
-        @media (min-width: g.$desktop-breakpoint-xl) {
-            width: 21%;
-            right: -9%;
-            top: -3%;
         }
     }
 
@@ -343,7 +328,7 @@
     .p-recruitment-flow-list {
         .p-recruitment-flow-list-item {
             position: relative;
-            max-width: 450px;
+            max-width: 480px;
             width: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -387,6 +372,7 @@
             left: 20px;
             top: -5px;
             width: 80px;
+            z-index: 3;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: 120px;
                 top: 50%;
@@ -565,5 +551,41 @@
                     right: 5px;
                 }
             }
+    }
+
+    .badge-recruitment {
+        position: sticky;
+        width: 100%;
+        max-width: 1200px;
+        height: 1;
+        margin: 0 auto;
+        z-index: 3;
+        //top: -2%;
+        top: 110px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            width: 100%;
+            top: 150px;
+        }
+
+
+        .badge-recruitment-img {
+            position: absolute;
+            width: 21%;
+            right: 0;
+            top: 60vh;
+            transition: all ease 0.3s;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 16%;
+                right: 0;
+                top: 50vh;
+
+                &:hover {
+                    //opacity: 0.8;
+                }
+            }
+            @media (min-width: g.$desktop-breakpoint-xl) {
+                right: -10%;
+            }
+        }
     }
 }

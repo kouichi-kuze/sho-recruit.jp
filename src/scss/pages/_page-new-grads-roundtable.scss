@@ -320,10 +320,32 @@
         box-sizing: border-box;
         padding: 20px 10px;
         margin-bottom: 40px;
+        position: relative;
         @media (min-width: g.$desktop-breakpoint-md) {
             padding: 30px 50px;
             margin-bottom: 90px;
         }
+
+        &:after {
+            content: "";
+            background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 101.29px;
+            height: 100px;
+            position: absolute;
+            left: -60px;
+            top: 5%;
+            transform: translateY(-50%);
+            z-index: 1;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: 185.95px;
+                height: 183.58px;
+                left: -100px;
+            }
+        }
+
         .page-nav-list {
             .page-nav-list-item {
                 border-bottom: solid 1px #BCC2CB;
@@ -463,7 +485,7 @@
                 .pgr-comment-card-text {
                     font-weight: 400;
                     font-size: 1rem;
-                    line-height: 1.5;
+                    line-height: 2.2;
                     margin-bottom: 0;
                     @media (min-width: g.$desktop-breakpoint-lg) {
                     font-size: 1rem;
