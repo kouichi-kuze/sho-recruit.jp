@@ -478,7 +478,10 @@
             position: relative;
             z-index: 5;
             @media (min-width: g.$desktop-breakpoint-md) {
-                grid-template-columns: repeat(3,1fr);
+                //grid-template-columns: repeat(3,1fr);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
                 gap: 30px;
                 margin-bottom: 75px;
             }
@@ -488,6 +491,9 @@
             background-color: #F5F6F8;
             border-radius: 10px;
             overflow: hidden;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                width: calc(33.333% - 20px);
+            }
 
             > img {
                 display: block;
@@ -495,9 +501,9 @@
                 height: auto;
                 object-fit: cover;
                 object-position: center;
-                aspect-ratio: 321 / 236;
+                aspect-ratio: 323 / 166;
                 @media (min-width: g.$desktop-breakpoint-md) {
-                    aspect-ratio: 321 / 236;
+                    aspect-ratio: 554 / 369;
                 }
             }
         }
@@ -1802,6 +1808,7 @@
             min-height: 44px; 
             font-size: 0.875rem;
             font-weight: 400;
+            color: #333333;
             @media (min-width: g.$desktop-breakpoint-md) {
                 font-size: 1.125rem;
                 padding: 25px 0;

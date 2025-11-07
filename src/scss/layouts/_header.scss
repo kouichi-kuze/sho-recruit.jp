@@ -132,7 +132,7 @@
       flex-wrap: wrap;
       gap: 20px 0;
       @media (min-width: g.$desktop-breakpoint-lg) {
-        gap: 20px;
+        gap: 18px;
         padding: 0;
         align-items: center;
       }
@@ -408,7 +408,7 @@
     .ico-nav-01 {
         right: 20px;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-50%) rotate(180deg);
         position: absolute;
         transition: transform .2s ease;
 
@@ -416,7 +416,7 @@
         margin-left: 10px;
         right: auto;
         top: auto;
-        transform: translateY(0);
+        transform: translateY(2px) rotate(180deg);
         position: relative;
       }
 
@@ -445,14 +445,15 @@
   @media (min-width: g.$desktop-breakpoint-lg) {
     .has-dropdown:hover > .nav-first-layer .ico-nav-01,
     .has-dropdown:focus-within > .nav-first-layer .ico-nav-01 {
-      transform: rotate(180deg);
+      transform: rotate(0);
     }
   }
 
   /* SP：開いている間は回転維持（JSで .is-open を付与している想定） */
   @media (max-width: g.$desktop-breakpoint-lg) {
     .has-dropdown.is-open > .nav-first-layer .ico-nav-01 {
-      transform: rotate(180deg);
+      //transform: rotate(180deg);
+      transform: translateY(-52%) rotate(0);
       transition: transform .2s ease;
     }
   }
