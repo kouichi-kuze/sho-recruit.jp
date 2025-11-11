@@ -274,6 +274,8 @@
         .p-office-tour__media {
             position: relative;
             width: 91%;
+            border-radius: 10px;
+            overflow: hidden;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: 100%;
                 flex: 0 0 53%;
