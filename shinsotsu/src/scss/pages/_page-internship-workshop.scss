@@ -27,12 +27,12 @@
         overflow: hidden;
         box-sizing: border-box;
         height: 321px;
-        background-image: url(/assets/img/internship-workshop/kv_sp.webp);
+        background-image: url(/shinsotsu/assets/img/internship-workshop/kv_sp.webp);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/assets/img/internship-workshop/kv_pc.webp);
+            background-image: url(/shinsotsu/assets/img/internship-workshop/kv_pc.webp);
             height: 314px;
             background-position: right top;
         }
@@ -237,7 +237,7 @@
 
         &:after {
             content: "";
-            background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+            background-image: url(/shinsotsu/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;

@@ -220,12 +220,12 @@ class VideoCubeIntro {
 
         // 画像パス
         const imageSources = [
-            '/assets/img/top/kv/img1.png', // 右面
-            '/assets/img/top/kv/img2.png', // 左面
-            '/assets/img/top/kv/img3.png', // 上面
-            '/assets/img/top/kv/img4.png', // 下面
-            '/assets/img/top/kv/img5.png', // 前面
-            '/assets/img/top/kv/img6.png'  // 後面
+            '/shinsotsu/assets/img/top/kv/img1.png', // 右面
+            '/shinsotsu/assets/img/top/kv/img2.png', // 左面
+            '/shinsotsu/assets/img/top/kv/img3.png', // 上面
+            '/shinsotsu/assets/img/top/kv/img4.png', // 下面
+            '/shinsotsu/assets/img/top/kv/img5.png', // 前面
+            '/shinsotsu/assets/img/top/kv/img6.png'  // 後面
         ];
 
         // 各面のテクスチャ回転設定（ラジアン）

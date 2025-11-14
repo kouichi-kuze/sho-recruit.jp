@@ -342,7 +342,7 @@ a.target-blank::after {
   width: 1em;
   height: 1em;
   margin-left: 0.3em;
-  background: url("/assets/img/common/ico_link.svg") no-repeat center;
+  background: url("/shinsotsu/assets/img/common/ico_link.svg") no-repeat center;
   background-size: contain;
   vertical-align: middle;
 }
@@ -1038,7 +1038,7 @@ body:not(#home) .site-header {
 }
 
 .site-footer {
-  background-image: url(/assets/img/common/bg_footer.svg);
+  background-image: url(/shinsotsu/assets/img/common/bg_footer.svg);
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;
@@ -1404,7 +1404,7 @@ body:not(#home) .site-header {
 }
 
 .kv-container {
-  /*background-image: url('/assets/img/top/kv_dammy_sp.png');
+  /*background-image: url('/shinsotsu/assets/img/top/kv_dammy_sp.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;*/
@@ -1458,7 +1458,7 @@ body:not(#home) .site-header {
           transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  background-image: url("/assets/img/top/kv/bg.png");
+  background-image: url("/shinsotsu/assets/img/top/kv/bg.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -1535,7 +1535,7 @@ body:not(#home) .site-header {
   width: 100%;
   max-width: 375px;
   height: auto;
-  background-image: url("/assets/img/top/kv/copy1.png");
+  background-image: url("/shinsotsu/assets/img/top/kv/copy1.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -1577,7 +1577,7 @@ body:not(#home) .site-header {
   aspect-ratio: 463/180;
   max-width: 250px;
   height: auto;
-  background-image: url("/assets/img/top/kv/copy2.png");
+  background-image: url("/shinsotsu/assets/img/top/kv/copy2.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center left;
@@ -1758,7 +1758,7 @@ body:not(#home) .site-header {
 }
 #home .p-section--intro:after {
   content: "";
-  background-image: url(/assets/img/top/intro_bg_main_sp.svg);
+  background-image: url(/shinsotsu/assets/img/top/intro_bg_main_sp.svg);
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -1771,7 +1771,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #home .p-section--intro:after {
-    background-image: url(/assets/img/top/intro_bg_main.svg);
+    background-image: url(/shinsotsu/assets/img/top/intro_bg_main.svg);
     height: 90%;
     background-size: cover;
   }
@@ -2335,7 +2335,7 @@ body:not(#home) .site-header {
   margin: 0 auto 0;
 }
 #home .p-section--interview {
-  background-image: url(/assets/img/top/interview_bg_section.svg);
+  background-image: url(/shinsotsu/assets/img/top/interview_bg_section.svg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -2345,7 +2345,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #home .p-section--interview {
-    background-image: url(/assets/img/top/interview_bg_section.svg);
+    background-image: url(/shinsotsu/assets/img/top/interview_bg_section.svg);
     background-position: center bottom;
     padding: 95px 0 115px;
   }
@@ -2900,7 +2900,7 @@ body:not(#home) .site-header {
   }
 }
 #home .p-section--environment {
-  background-image: url(/assets/img/top/environment_bg_section.svg);
+  background-image: url(/shinsotsu/assets/img/top/environment_bg_section.svg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -2911,7 +2911,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #home .p-section--environment {
-    background-image: url(/assets/img/top/environment_bg_section.svg);
+    background-image: url(/shinsotsu/assets/img/top/environment_bg_section.svg);
     background-position: center top;
     padding: 95px 0 0;
   }
@@ -3190,7 +3190,7 @@ body:not(#home) .site-header {
   right: 0;
   bottom: 0;
   left: 0;
-  background-image: url(/assets/img/top/roundtable_bg.svg);
+  background-image: url(/shinsotsu/assets/img/top/roundtable_bg.svg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -3204,7 +3204,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #home .p-roundtable::before {
-    background-image: url(/assets/img/top/roundtable_bg.svg);
+    background-image: url(/shinsotsu/assets/img/top/roundtable_bg.svg);
     background-position: left top;
   }
 }
@@ -3429,7 +3429,7 @@ body:not(#home) .site-header {
 }
 #home .p-recruit-banner .p-recruit-banner-inner {
   width: 100%;
-  background-image: url(/assets/img/top/recruit_bg_sp.svg);
+  background-image: url(/shinsotsu/assets/img/top/recruit_bg_sp.svg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -3449,7 +3449,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #home .p-recruit-banner .p-recruit-banner-inner {
-    background-image: url(/assets/img/top/recruit_bg.svg);
+    background-image: url(/shinsotsu/assets/img/top/recruit_bg.svg);
     background-position: left top;
     padding: 0 4% 80px;
     min-height: 400px;
@@ -3699,7 +3699,7 @@ body:not(#home) .site-header {
   content: "";
   width: 36px;
   height: 36px;
-  background: url("/assets/img/top/ico_faq_off.svg") no-repeat center/contain;
+  background: url("/shinsotsu/assets/img/top/ico_faq_off.svg") no-repeat center/contain;
   -webkit-transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
   transition: opacity 0.2s ease, -webkit-transform 0.2s ease;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -3739,7 +3739,7 @@ body:not(#home) .site-header {
   }
 }
 #home .p-faq__item.is-open .p-faq__question::after {
-  background-image: url("/assets/img/top/ico_faq_on.svg");
+  background-image: url("/shinsotsu/assets/img/top/ico_faq_on.svg");
 }
 #home .p-faq__answer {
   height: 0;
@@ -4654,7 +4654,7 @@ body:not(#home) .site-header {
   }
 }
 #interview .p-section--interview-footer-slider {
-  background-image: url(/assets/img/works/interview/interview_bg_section.svg);
+  background-image: url(/shinsotsu/assets/img/works/interview/interview_bg_section.svg);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -4664,7 +4664,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #interview .p-section--interview-footer-slider {
-    background-image: url(/assets/img/works/interview/interview_bg_section.svg);
+    background-image: url(/shinsotsu/assets/img/works/interview/interview_bg_section.svg);
     background-position: center bottom;
     padding: 95px 0 115px;
   }
@@ -4954,14 +4954,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/works/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/works/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #works .page-sub-hero {
-    background-image: url(/assets/img/works/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/works/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -5192,7 +5192,7 @@ body:not(#home) .site-header {
 }
 #works .title-section-works:after {
   content: "";
-  background-image: url(/assets/img/works/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/works/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -5834,14 +5834,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/about/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/about/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #about .page-sub-hero {
-    background-image: url(/assets/img/about/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/about/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -5971,14 +5971,14 @@ body:not(#home) .site-header {
   height: 768px;
   z-index: 1;
   position: absolute;
-  background-image: url(/assets/img/about/bg_aboutus_intro_sp.webp);
+  background-image: url(/shinsotsu/assets/img/about/bg_aboutus_intro_sp.webp);
   background-size: contain;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #about .aboutus-intro-bg:after {
-    background-image: url(/assets/img/about/bg_aboutus_intro.png);
+    background-image: url(/shinsotsu/assets/img/about/bg_aboutus_intro.png);
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
@@ -6200,7 +6200,7 @@ body:not(#home) .site-header {
   }
 }
 #about .aboutus-message {
-  background-image: url(/assets/img/about/bg_aboutus-message.webp);
+  background-image: url(/shinsotsu/assets/img/about/bg_aboutus-message.webp);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -6562,14 +6562,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/new-grads-roundtable/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/new-grads-roundtable/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #new-grads-roundtable .page-sub-hero {
-    background-image: url(/assets/img/new-grads-roundtable/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/new-grads-roundtable/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -6858,7 +6858,7 @@ body:not(#home) .site-header {
 }
 #new-grads-roundtable .title-section-pgr:after {
   content: "";
-  background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -6897,7 +6897,7 @@ body:not(#home) .site-header {
 }
 #new-grads-roundtable .page-nav-block:after {
   content: "";
-  background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -7166,14 +7166,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/data/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/data/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #data .page-sub-hero {
-    background-image: url(/assets/img/data/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/data/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -7668,14 +7668,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/office-tour/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/office-tour/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #office-tour .page-sub-hero {
-    background-image: url(/assets/img/office-tour/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/office-tour/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -7861,7 +7861,7 @@ body:not(#home) .site-header {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   top: -50px;
-  background-image: url(/assets/img/office-tour/bg_intoro_sp.webp);
+  background-image: url(/shinsotsu/assets/img/office-tour/bg_intoro_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -7870,7 +7870,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #office-tour .p-office-tour--intro:before {
-    background-image: url(/assets/img/office-tour/bg_intoro_pc.webp);
+    background-image: url(/shinsotsu/assets/img/office-tour/bg_intoro_pc.webp);
     width: 1527px;
     height: 885px;
     top: -180px;
@@ -8408,7 +8408,7 @@ body:not(#home) .site-header {
   }
 }
 #office-tour .p-office-tour--disaster-prevention {
-  background-image: url(/assets/img/office-tour/bg_disaster-prevention.webp);
+  background-image: url(/shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -8423,7 +8423,7 @@ body:not(#home) .site-header {
   #office-tour .p-office-tour--disaster-prevention {
     padding: 120px 0;
     margin-top: 120px;
-    background-image: url(/assets/img/office-tour/bg_disaster-prevention.webp);
+    background-image: url(/shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
   }
 }
 #office-tour .title-disaster-prevention-heading {
@@ -8946,14 +8946,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/our-support-system/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/our-support-system/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #our-support-system .page-sub-hero {
-    background-image: url(/assets/img/our-support-system/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/our-support-system/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -9166,7 +9166,7 @@ body:not(#home) .site-header {
 }
 #our-support-system .title-section-oss:after {
   content: "";
-  background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -9310,14 +9310,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/internship-workshop/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/internship-workshop/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #internship-workshop .page-sub-hero {
-    background-image: url(/assets/img/internship-workshop/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/internship-workshop/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -9531,7 +9531,7 @@ body:not(#home) .site-header {
 }
 #internship-workshop .title-section-internship-workshop:after {
   content: "";
-  background-image: url(/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/new-grads-roundtable/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -10040,14 +10040,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/new-graduate-recruitment-information/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #new-graduate-recruitment-information .page-sub-hero {
-    background-image: url(/assets/img/new-graduate-recruitment-information/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -10514,7 +10514,7 @@ body:not(#home) .site-header {
   content: "";
   width: 17px;
   height: 10px;
-  background-image: url(/assets/img/new-graduate-recruitment-information/ico_check.svg);
+  background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/ico_check.svg);
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -10680,14 +10680,14 @@ body:not(#home) .site-header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/new-graduate-entry-form/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/new-graduate-entry-form/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #new-graduate-entry-form .page-sub-hero {
-    background-image: url(/assets/img/new-graduate-entry-form/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/new-graduate-entry-form/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }

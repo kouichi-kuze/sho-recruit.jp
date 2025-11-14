@@ -16,14 +16,14 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   height: 321px;
-  background-image: url(/assets/img/works/kv_sp.webp);
+  background-image: url(/shinsotsu/assets/img/works/kv_sp.webp);
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 @media (min-width: 768px) {
   #works .page-sub-hero {
-    background-image: url(/assets/img/works/kv_pc.webp);
+    background-image: url(/shinsotsu/assets/img/works/kv_pc.webp);
     height: 314px;
     background-position: right top;
   }
@@ -250,7 +250,7 @@
 }
 #works .title-section-works:after {
   content: "";
-  background-image: url(/assets/img/works/bg_title_contents_parts.webp);
+  background-image: url(/shinsotsu/assets/img/works/bg_title_contents_parts.webp);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

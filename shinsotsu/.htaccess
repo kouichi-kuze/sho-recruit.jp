@@ -12,8 +12,8 @@ AddOutputFilter INCLUDES .shtml .html
 DirectoryIndex index.html index.shtml
 
 # 4. SSI のコメント外し例（必要に応じて）
-#   <!--#include virtual="/inc/header.html" -->
-#   <!--#include virtual="/inc/footer.html" -->
+#   <!--#include virtual="/shinsotsu/inc/header.html" -->
+#   <!--#include virtual="/shinsotsu/inc/footer.html" -->
 
 <Files ".ftp-deploy-sync-state.json">
     Require all denied
