@@ -555,7 +555,7 @@
                 margin-bottom: 15px;
                 @media (min-width: g.$desktop-breakpoint-md) {
                     font-size: 1.125rem;
-                    margin-bottom: 20px;
+                    margin-bottom: 0;
                 }
                 @media (min-width: g.$desktop-breakpoint-xl) {
                     //margin-bottom: 0;

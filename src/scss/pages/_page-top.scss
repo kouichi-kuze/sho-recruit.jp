@@ -31,8 +31,9 @@
                 z-index: -1;
                 @media (min-width: g.$desktop-breakpoint-md) {
                     background-image: url(/assets/img/top/intro_bg_main.svg);
-                    background-position: center top;
+                    //background-position: center top;
                     height: 90%;
+                    background-size: cover;
                 }
         }
 
@@ -373,6 +374,12 @@
     display: inline-block;
     clip-path: inset(0 0 100% 0); /* 上→下に開く起点 */
     will-change: clip-path;
+    background: linear-gradient(to bottom right,
+    #032330 0%,
+    #234E6E 49%,
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     }
 
 
