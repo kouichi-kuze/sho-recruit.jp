@@ -47,6 +47,8 @@
   width: 100vw;
   height: 100vh; // キューブ全体が見えるように拡張
   //background-color: #ddd;
+  //filter: blur(0px);
+  //transition: filter 0.3s;
   @media (min-width: g.$desktop-breakpoint-sm) {
     width: 100%;
     position: absolute;
@@ -58,6 +60,12 @@
     height: 1200px; // キューブ全体が見えるように拡張
     //background-color: #ddd;
   }
+}
+
+.kv.animating {
+  /* アニメーション中のスタイル */
+  //filter: blur(1em);
+  //transition: filter 0.3s;
 }
 
 .kv-bg{
@@ -114,6 +122,8 @@
     display: block;
     aspect-ratio: 735 / 319;
     width: 100%;
+    height: auto;
+    min-height: 100%;
     //max-width: 375px;
     max-width: 334px;
     overflow: hidden;
@@ -135,8 +145,9 @@
       display: block;
       aspect-ratio: 735 / 319;
       width: 100%;
-      max-width: 375px;
+      max-width: 334px;
       height: auto;
+      min-height: 100%;
       background-image: url('/assets/img/top/kv/copy1.png');
       background-repeat: no-repeat;
       background-size: contain;
@@ -155,6 +166,7 @@
     aspect-ratio: 463 / 180;
     max-width: 211px;
     height: auto;
+    min-height: 82px;
     overflow: hidden;
     position: absolute;
     left: 93px;
@@ -173,8 +185,9 @@
       display: block;
       width: 100%;
       aspect-ratio: 463 / 180;
-      max-width: 250px;
+      max-width: 211px;
       height: auto;
+      min-height: 82px;
       background-image: url('/assets/img/top/kv/copy2.png');
       background-repeat: no-repeat;
       background-size: contain;
