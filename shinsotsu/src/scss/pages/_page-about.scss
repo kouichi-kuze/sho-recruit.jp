@@ -192,6 +192,7 @@
             width: calc(100% - 30px);
             margin: 0 auto 20px;
             z-index: 2;
+            height: 100%;
             @media (min-width: g.$desktop-breakpoint-md) {
                 width: 50%;
                 margin: 0;

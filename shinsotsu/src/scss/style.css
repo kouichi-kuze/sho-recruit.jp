@@ -1404,7 +1404,7 @@ body:not(#home) .site-header {
 }
 
 .kv-container {
-  /*background-image: url('/shinsotsu/assets/img/top/kv_dammy_sp.png');
+  /*background-image: url('/assets/img/top/kv_dammy_sp.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;*/
@@ -1450,6 +1450,10 @@ body:not(#home) .site-header {
   }
 }
 
+.kv.animating {
+  /* アニメーション中のスタイル */
+}
+
 .kv-bg {
   position: absolute;
   top: -168px;
@@ -1458,7 +1462,7 @@ body:not(#home) .site-header {
           transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  background-image: url("/shinsotsu/assets/img/top/kv/bg.png");
+  background-image: url("/assets/img/top/kv/bg.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -1510,6 +1514,8 @@ body:not(#home) .site-header {
   display: block;
   aspect-ratio: 735/319;
   width: 100%;
+  height: auto;
+  min-height: 100%;
   max-width: 334px;
   overflow: hidden;
   position: absolute;
@@ -1533,9 +1539,10 @@ body:not(#home) .site-header {
   display: block;
   aspect-ratio: 735/319;
   width: 100%;
-  max-width: 375px;
+  max-width: 334px;
   height: auto;
-  background-image: url("/shinsotsu/assets/img/top/kv/copy1.png");
+  min-height: 100%;
+  background-image: url("/assets/img/top/kv/copy1.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -1554,6 +1561,7 @@ body:not(#home) .site-header {
   aspect-ratio: 463/180;
   max-width: 211px;
   height: auto;
+  min-height: 82px;
   overflow: hidden;
   position: absolute;
   left: 93px;
@@ -1575,9 +1583,10 @@ body:not(#home) .site-header {
   display: block;
   width: 100%;
   aspect-ratio: 463/180;
-  max-width: 250px;
+  max-width: 211px;
   height: auto;
-  background-image: url("/shinsotsu/assets/img/top/kv/copy2.png");
+  min-height: 82px;
+  background-image: url("/assets/img/top/kv/copy2.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center left;
@@ -6016,6 +6025,7 @@ body:not(#home) .site-header {
   width: calc(100% - 30px);
   margin: 0 auto 20px;
   z-index: 2;
+  height: 100%;
 }
 @media (min-width: 768px) {
   #about .aboutus-intro .aboutus-intro__media {
@@ -10629,39 +10639,114 @@ body:not(#home) .site-header {
   right: 5px;
 }
 #new-graduate-recruitment-information .badge-recruitment {
+  /*
   position: sticky;
   width: 100%;
   max-width: 1200px;
   height: 1;
   margin: 0 auto;
   z-index: 3;
+  //top: -2%;
   top: 110px;
-}
-@media (min-width: 768px) {
-  #new-graduate-recruitment-information .badge-recruitment {
-    width: 100%;
-    top: 150px;
+  @media (min-width: g.$desktop-breakpoint-md) {
+      width: 100%;
+      top: 150px;
   }
+
+
+  .badge-recruitment-img {
+      position: absolute;
+      width: 21%;
+      right: 0;
+      top: 60vh;
+      transition: all ease 0.3s;
+      @media (min-width: g.$desktop-breakpoint-md) {
+          width: 16%;
+          right: 0;
+          top: 50vh;
+
+          &:hover {
+              //opacity: 0.8;
+          }
+      }
+      @media (min-width: g.$desktop-breakpoint-xl) {
+          right: -10%;
+      }
+  }
+   */
 }
-#new-graduate-recruitment-information .badge-recruitment .badge-recruitment-img {
-  position: absolute;
-  width: 21%;
+#new-graduate-recruitment-information .badge-recruitment {
+  position: fixed;
   right: 0;
-  top: 60vh;
-  -webkit-transition: all ease 0.3s;
-  transition: all ease 0.3s;
+  bottom: 22%;
+  display: none;
+  width: 80px;
+  z-index: 11;
 }
-@media (min-width: 768px) {
-  #new-graduate-recruitment-information .badge-recruitment .badge-recruitment-img {
-    width: 16%;
-    right: 0;
-    top: 50vh;
+@media only screen and (min-width: 992px) {
+  #new-graduate-recruitment-information .badge-recruitment {
+    display: block;
+    bottom: 130px;
   }
 }
-@media (min-width: 1280px) {
-  #new-graduate-recruitment-information .badge-recruitment .badge-recruitment-img {
-    right: -10%;
-  }
+#new-graduate-recruitment-information .badge-recruitment__a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  min-height: 160px;
+  padding: 30px 0;
+  border-radius: 4px 0 0 4px;
+  color: #fff;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BA4C00), color-stop(67%, #8B1800), to(#671800));
+  background-image: linear-gradient(180deg, #BA4C00 0%, #8B1800 67%, #671800 100%);
+  -webkit-box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+  -webkit-transition: -webkit-transform 0.06s ease;
+  transition: -webkit-transform 0.06s ease;
+  transition: transform 0.06s ease;
+  transition: transform 0.06s ease, -webkit-transform 0.06s ease;
+  isolation: isolate;
+  /* hover オーバーレイ（白0.2） */
+}
+#new-graduate-recruitment-information .badge-recruitment__a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0);
+  pointer-events: none;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  z-index: 0;
+}
+#new-graduate-recruitment-information .badge-recruitment__a:hover::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#new-graduate-recruitment-information .badge-recruitment__a:active {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+#new-graduate-recruitment-information .badge-recruitment__a:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.15);
+  outline-offset: 2px;
+}
+#new-graduate-recruitment-information .badge-recruitment__a > * {
+  position: relative;
+  z-index: 1;
+}
+#new-graduate-recruitment-information .badge-recruitment__a img {
+  width: 45px;
 }
 
 #new-graduate-entry-form {
@@ -10810,7 +10895,7 @@ body:not(#home) .site-header {
 }
 @media (min-width: 768px) {
   #new-graduate-entry-form .new-graduate-entry-form-intro__inner {
-    max-width: 760px;
+    max-width: 768px;
   }
 }
 #new-graduate-entry-form .new-graduate-entry-form-intro__inner .new-graduate-entry-form-intro__partscloss_01 {
