@@ -63,6 +63,10 @@ URL	https://sho-recruit.jp.kzkicw.com/
 ユーザー名	user
 パスワード	87drxdtttptd
   
+## ステージングURL情報
+https://www.sho-recruit.jp/stg_shinsotsu/
+ユーザー名：sho
+パスワード：eE|s%9TGW^%Z
   
   
 ## 構造化データ（JSON-LD）設置ルール
