@@ -12,7 +12,7 @@
 
 .kv-container {
   //background-color: #eee;
-  /*background-image: url('/assets/img/top/kv_dammy_sp.png');
+  /*background-image: url('/stg_shinsotsu/assets/img/top/kv_dammy_sp.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;*/
@@ -23,7 +23,7 @@
   overflow: hidden;
   margin-bottom: -100px;
   @media (min-width: g.$desktop-breakpoint-md) {
-    //background-image: url('/assets/img/top/kv_dammy_pc.png');
+    //background-image: url('/stg_shinsotsu/assets/img/top/kv_dammy_pc.png');
     //background-size: contain;
     //background-position: center;
     //background-repeat: no-repeat;
@@ -75,7 +75,7 @@
   transform: translateX(-50%);
   width: 100%;
   height: 100%;
-  background-image: url('/assets/img/top/kv/bg.png');
+  background-image: url('/stg_shinsotsu/assets/img/top/kv/bg.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -148,7 +148,7 @@
       max-width: 334px;
       height: auto;
       min-height: 100%;
-      background-image: url('/assets/img/top/kv/copy1.png');
+      background-image: url('/stg_shinsotsu/assets/img/top/kv/copy1.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
@@ -188,7 +188,7 @@
       max-width: 211px;
       height: auto;
       min-height: 82px;
-      background-image: url('/assets/img/top/kv/copy2.png');
+      background-image: url('/stg_shinsotsu/assets/img/top/kv/copy2.png');
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center left;

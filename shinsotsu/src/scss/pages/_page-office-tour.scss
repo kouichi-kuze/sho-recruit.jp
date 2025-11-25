@@ -27,12 +27,12 @@
         overflow: hidden;
         box-sizing: border-box;
         height: 321px;
-        background-image: url(/shinsotsu/assets/img/office-tour/kv_sp.webp);
+        background-image: url(/stg_shinsotsu/assets/img/office-tour/kv_sp.webp);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/shinsotsu/assets/img/office-tour/kv_pc.webp);
+            background-image: url(/stg_shinsotsu/assets/img/office-tour/kv_pc.webp);
             height: 314px;
             background-position: right top;
         }
@@ -209,14 +209,14 @@
             left: 50%;
             transform: translateX(-50%);
             top: -50px;
-            background-image: url(/shinsotsu/assets/img/office-tour/bg_intoro_sp.webp);
+            background-image: url(/stg_shinsotsu/assets/img/office-tour/bg_intoro_sp.webp);
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
             width: 414px;
             height: 259px;
             @media (min-width: g.$desktop-breakpoint-md) {
-                background-image: url(/shinsotsu/assets/img/office-tour/bg_intoro_pc.webp);
+                background-image: url(/stg_shinsotsu/assets/img/office-tour/bg_intoro_pc.webp);
                 width: 1527px;
                 height: 885px;
                 top: -180px;
@@ -694,7 +694,7 @@
     }
 
     .p-office-tour--disaster-prevention {
-        background-image: url(/shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
+        background-image: url(/stg_shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
@@ -707,7 +707,7 @@
         @media (min-width: g.$desktop-breakpoint-md) {
             padding: 120px 0;
             margin-top: 120px;
-            background-image: url(/shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
+            background-image: url(/stg_shinsotsu/assets/img/office-tour/bg_disaster-prevention.webp);
             
         }        
     }

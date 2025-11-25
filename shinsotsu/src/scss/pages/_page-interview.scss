@@ -803,7 +803,7 @@
     }
 
     .p-section--interview-footer-slider {
-        background-image: url(/shinsotsu/assets/img/works/interview/interview_bg_section.svg);
+        background-image: url(/stg_shinsotsu/assets/img/works/interview/interview_bg_section.svg);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
@@ -811,7 +811,7 @@
         height: 100%;
         padding: 50px 0 90px;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/shinsotsu/assets/img/works/interview/interview_bg_section.svg);
+            background-image: url(/stg_shinsotsu/assets/img/works/interview/interview_bg_section.svg);
             background-position: center bottom;
             padding: 95px 0 115px;
         }

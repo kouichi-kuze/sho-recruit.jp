@@ -27,12 +27,12 @@
         overflow: hidden;
         box-sizing: border-box;
         height: 321px;
-        background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/kv_sp.webp);
+        background-image: url(/stg_shinsotsu/assets/img/new-graduate-recruitment-information/kv_sp.webp);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/kv_pc.webp);
+            background-image: url(/stg_shinsotsu/assets/img/new-graduate-recruitment-information/kv_pc.webp);
             height: 314px;
             background-position: right top;
         }
@@ -450,7 +450,7 @@
                     content: "";
                     width: 17px;
                     height: 10px;
-                    background-image: url(/shinsotsu/assets/img/new-graduate-recruitment-information/ico_check.svg);
+                    background-image: url(/stg_shinsotsu/assets/img/new-graduate-recruitment-information/ico_check.svg);
                     background-size: 100%;
                     background-position: center top;
                     background-repeat: no-repeat;

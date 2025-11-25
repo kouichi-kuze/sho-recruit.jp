@@ -19,7 +19,7 @@
 
         &:after {
                 content: "";
-                background-image: url(/shinsotsu/assets/img/top/intro_bg_main_sp.svg);
+                background-image: url(/stg_shinsotsu/assets/img/top/intro_bg_main_sp.svg);
                 background-size: 100%;
                 background-position: center top;
                 background-repeat: no-repeat;
@@ -30,7 +30,7 @@
                 bottom: 0;
                 z-index: -1;
                 @media (min-width: g.$desktop-breakpoint-md) {
-                    background-image: url(/shinsotsu/assets/img/top/intro_bg_main.svg);
+                    background-image: url(/stg_shinsotsu/assets/img/top/intro_bg_main.svg);
                     //background-position: center top;
                     height: 90%;
                     background-size: cover;
@@ -560,7 +560,7 @@
 
     //inter
     .p-section--interview {
-        background-image: url(/shinsotsu/assets/img/top/interview_bg_section.svg);
+        background-image: url(/stg_shinsotsu/assets/img/top/interview_bg_section.svg);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
@@ -568,7 +568,7 @@
         height: 100%;
         padding: 50px 0 90px;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/shinsotsu/assets/img/top/interview_bg_section.svg);
+            background-image: url(/stg_shinsotsu/assets/img/top/interview_bg_section.svg);
             background-position: center bottom;
             padding: 95px 0 115px;
         }
@@ -1061,7 +1061,7 @@
 
     //environment
     .p-section--environment {
-        background-image: url(/shinsotsu/assets/img/top/environment_bg_section.svg);
+        background-image: url(/stg_shinsotsu/assets/img/top/environment_bg_section.svg);
         background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
@@ -1070,7 +1070,7 @@
         padding: 50px 0 90px;
         position: relative;
         @media (min-width: g.$desktop-breakpoint-md) {
-            background-image: url(/shinsotsu/assets/img/top/environment_bg_section.svg);
+            background-image: url(/stg_shinsotsu/assets/img/top/environment_bg_section.svg);
             background-position: center top;
             padding: 95px 0 0;
         }
@@ -1355,7 +1355,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background-image: url(/shinsotsu/assets/img/top/roundtable_bg.svg);
+            background-image: url(/stg_shinsotsu/assets/img/top/roundtable_bg.svg);
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
@@ -1371,7 +1371,7 @@
 
         @media (min-width: g.$desktop-breakpoint-md) {
             &::before {
-            background-image: url(/shinsotsu/assets/img/top/roundtable_bg.svg);
+            background-image: url(/stg_shinsotsu/assets/img/top/roundtable_bg.svg);
             background-position: left top;
             }
         }
@@ -1580,7 +1580,7 @@
 
         .p-recruit-banner-inner {
             width: 100%;
-            background-image: url(/shinsotsu/assets/img/top/recruit_bg_sp.svg);
+            background-image: url(/stg_shinsotsu/assets/img/top/recruit_bg_sp.svg);
             background-size: cover;
             background-position: center top;
             background-repeat: no-repeat;
@@ -1596,7 +1596,7 @@
             padding: 0 15px 45px;
             z-index: 2;
             @media (min-width: g.$desktop-breakpoint-md) {
-                background-image: url(/shinsotsu/assets/img/top/recruit_bg.svg);
+                background-image: url(/stg_shinsotsu/assets/img/top/recruit_bg.svg);
                 background-position: left top;
                 padding: 0 4% 80px;
                 min-height: 400px;
@@ -1828,7 +1828,7 @@
                 content: "";
                 width: 36px;
                 height: 36px;
-                background: url("/shinsotsu/assets/img/top/ico_faq_off.svg") no-repeat center/contain;
+                background: url("/stg_shinsotsu/assets/img/top/ico_faq_off.svg") no-repeat center/contain;
                 transition: transform .2s ease, opacity .2s ease;
                 @media (min-width: g.$desktop-breakpoint-md) {
                     width: 46px;
@@ -1861,7 +1861,7 @@
         
 
         &__item.is-open .p-faq__question::after {
-            background-image: url("/shinsotsu/assets/img/top/ico_faq_on.svg");
+            background-image: url("/stg_shinsotsu/assets/img/top/ico_faq_on.svg");
         }
 
         &__answer {
