@@ -19,6 +19,14 @@ class VideoCubeIntro {
         this.customAxisSphere1 = null; // オレンジ色の球1（リサイズ時も保持）
         this.customAxisSphere2 = null; // オレンジ色の球2（リサイズ時も保持）
         this.initialCameraState = null; // 初期カメラ状態（リサイズ時も保持）
+        this.skipIntro = false; // イントロスキップフラグ
+
+        // sessionStorageをチェック（下層ページからの遷移）
+        const fromLower = sessionStorage.getItem('fromLowerToTop');
+        if (fromLower === '1') {
+            this.skipIntro = true;
+            sessionStorage.removeItem('fromLowerToTop'); // 使用後は削除
+        }
 
         this.createLoadingElement();
         this.init();
@@ -517,6 +525,18 @@ class VideoCubeIntro {
             return;
         }
 
+        // イントロスキップ時は即座にfix状態へ
+        if (this.skipIntro && !this.textAnimationStarted) {
+            this.skipIntro = false; // 一度だけ実行
+            this.animationProgress = 1;
+            this.setFixedState();
+            this.textAnimationStarted = true;
+            // テキストもすぐに表示状態にする
+            this.showAllElementsImmediately();
+            this.renderer.render(this.scene, this.camera);
+            return;
+        }
+
         // 24fpsフレームレート制御
         if (currentTime - this.lastFrameTime < this.frameInterval) {
             return;
@@ -836,6 +856,83 @@ class VideoCubeIntro {
                 kvScroll.style.opacity = '1';
             }
         }, 1200);
+    }
+
+    // イントロスキップ時: キューブをfix状態（アニメーション完了位置）に設定
+    setFixedState() {
+        const isMobile = window.innerWidth < 768;
+
+        // キューブの不透明度を1に
+        this.cube.children.forEach(child => {
+            if (child.material && child.material.uniforms && child.material.uniforms.opacity) {
+                child.material.uniforms.opacity.value = 1;
+            }
+        });
+
+        // キューブのサイズを終了状態に
+        const startSize = isMobile ? 800 : 1300;
+        const endSize = isMobile ? 550 : 900;
+        this.cube.scale.set(
+            endSize / startSize,
+            endSize / startSize,
+            endSize / startSize
+        );
+
+        // キューブの位置を終了状態に（ベジェ曲線の終点）
+        if (isMobile) {
+            this.cube.position.set(0, 320, -300);
+        } else {
+            this.cube.position.set(300, 0, -1000);
+        }
+
+        // kv-bgを表示
+        const kvBg = document.querySelector('.kv-bg');
+        if (kvBg) {
+            kvBg.style.opacity = '1';
+        }
+    }
+
+    // イントロスキップ時: 全ての要素を即座に表示状態にする
+    showAllElementsImmediately() {
+        // コピーテキスト
+        const copy1 = document.querySelector('.kv-copy1');
+        const copy2 = document.querySelector('.kv-copy2');
+        if (copy1) {
+            copy1.style.opacity = '1';
+            copy1.style.clipPath = 'none';
+        }
+        if (copy2) {
+            copy2.style.opacity = '1';
+            copy2.style.clipPath = 'none';
+        }
+
+        // リードテキスト
+        const kvReadSpans = document.querySelectorAll('.kv-read p span');
+        kvReadSpans.forEach(span => {
+            span.style.opacity = '1';
+            span.style.clipPath = 'none';
+        });
+
+        // ヘッダー
+        const siteHeader = document.querySelector('.site-header');
+        if (siteHeader) {
+            siteHeader.style.transition = 'none';
+            siteHeader.style.transform = 'translateY(0)';
+        }
+
+        // 固定ボタン
+        const fixedBtn = document.querySelector('.fixed-btn-link');
+        if (fixedBtn) {
+            fixedBtn.style.transition = 'none';
+            fixedBtn.style.transform = 'translateX(0)';
+        }
+
+        // スクロール要素
+        const kvScroll = document.querySelector('.kv-scroll');
+        if (kvScroll) {
+            kvScroll.style.transition = 'none';
+            kvScroll.style.opacity = '1';
+        }
     }
 
     onWindowResize() {
