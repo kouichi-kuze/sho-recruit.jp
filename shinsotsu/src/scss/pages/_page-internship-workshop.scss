@@ -449,7 +449,7 @@
         width: 100%;
         box-sizing: border-box;
         margin-bottom: 60px;
-        @media (min-width: g.$desktop-breakpoint-md) {
+        @media (min-width: g.$desktop-breakpoint-lg) {
             width: 42%;
             padding-right: 5%;
             margin-bottom: 0;
@@ -458,7 +458,7 @@
 
        .entry-form-input {
         width: 100%;
-        @media (min-width: g.$desktop-breakpoint-md) {
+        @media (min-width: g.$desktop-breakpoint-lg) {
             width: 58%;
         }
        }
