@@ -289,6 +289,13 @@ class VideoCubeIntro {
                     if (loadedCount === totalImages) {
                         this.imagesLoaded = true;
                         this.removeLoadingElement();
+
+                        // ヘッダー
+                        const siteHeader = document.querySelector('.site-header');
+                        if (siteHeader) {
+                            siteHeader.style.transition = 'transform 0.6s ease-out';
+                            siteHeader.style.transform = 'translateY(0)';
+                        }
                     }
                 },
                 // 進行中（オプション）
