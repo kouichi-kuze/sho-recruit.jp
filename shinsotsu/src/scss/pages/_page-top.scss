@@ -684,7 +684,11 @@
         @media (min-width: g.$desktop-breakpoint-md) {
             gap: 30px;
             //padding-left: 80vw;
-            padding-left: 40vw;
+            padding-left: 14.6vw;
+        }
+        
+        @media (min-width: g.$desktop-breakpoint-xxl) {
+            padding-left: 36vw;
         }
         
     }
