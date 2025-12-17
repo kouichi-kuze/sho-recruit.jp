@@ -533,6 +533,10 @@
 
         .timeline__body {
             flex: 1;
+            margin-top: -5px;
+            @media (min-width: g.$desktop-breakpoint-md) {
+                margin-top: -8px;
+            }
         }
 
         .timeline__title {
