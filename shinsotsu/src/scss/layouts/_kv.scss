@@ -31,7 +31,8 @@
     position: relative;
     top: -100px;
     margin: 0 auto;
-    margin-bottom: -100px;
+    //margin-bottom: -100px;
+    margin-bottom: -500px;
     max-width: 100%;
     height: 1200px; // キューブ全体が見えるように拡張
   }
@@ -52,8 +53,10 @@
   @media (min-width: g.$desktop-breakpoint-sm) {
     width: 100%;
     position: absolute;
-    top: 0;
-    left: 50%;
+    //top: 0;
+    //left: 50%;
+    top: -40px;
+    left: 40%;
     transform: translateX(-50%);
     //bottom: 0;
     width: 100vw;
@@ -84,7 +87,8 @@
   width: 1117px;
   height: auto;
   @media (min-width: g.$desktop-breakpoint-md) {
-    top: calc(50% + 35px);
+    //top: calc(50% + 35px);
+    top: calc(50% + -85px);
     left: calc(50% - 26px);
     transform: translateX(-50%) translateY(-50%);
     //transform: none;
@@ -112,8 +116,10 @@
   @media (min-width: g.$desktop-breakpoint-md) {
     width: 735px;
     height: 365px;
-    left: calc(50% + -43px);
-    top: 232px;
+    //left: calc(50% + -43px);
+    //top: 232px;
+    left: calc(50% - 163px);
+    top: 276px;
     padding: 0;
     transform: translateX(0) translateY(0);
     //background-color: #eee;
@@ -224,7 +230,8 @@
     height: auto;
     font-size: 22px;
     left: calc(50% + 292px);
-    top: calc(50% + 109px);
+    //top: calc(50% + 109px);
+    top: calc(50% + 54px);
     transform: none;
     padding: 0px;
     padding-top: 17px;
