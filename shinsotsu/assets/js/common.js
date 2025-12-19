@@ -102,6 +102,7 @@
   }
 
   // ========= 2) イントロ動画（ポスター切替） =========
+  /*YOUTUBE 埋め込みのため不要
   function initIntroMovie() {
     var wrap = document.querySelector('.p-intro__movie');
     if (!wrap) return;
@@ -109,12 +110,26 @@
     var btn = wrap.querySelector('.movie__poster');
     if (!btn) return;
 
+    var img = btn.querySelector('img');
     var youtubeUrl = wrap.getAttribute('data-youtube');
     var youtubeId = youtubeUrl.match(/embed\/([^?&]+)/)[1];
     var title = wrap.getAttribute('data-title') || '動画';
     var player;
 
-    // プレイヤー用の入れ物
+    // YouTubeサムネイルを自動セット
+    if (img) {
+      var maxres = 'https://img.youtube.com/vi/' + youtubeId + '/maxresdefault.jpg';
+      var hq = 'https://img.youtube.com/vi/' + youtubeId + '/hqdefault.jpg';
+
+      img.alt = title + ' サムネイル';
+      img.src = maxres;
+
+      img.onerror = function () {
+        // maxresが無い場合にhqへ差し替え
+        if (img.src !== hq) img.src = hq;
+      };
+    }
+
     var playerBox = wrap.querySelector('.p-intro__movie-player');
     if (!playerBox) {
       playerBox = document.createElement('div');
@@ -154,12 +169,19 @@
       });
     }
 
-    btn.addEventListener('click', function(e){ e.preventDefault(); playYoutube(); });
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      playYoutube();
+    });
+
     btn.addEventListener('keydown', function(e){
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playYoutube(); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        playYoutube();
+      }
     });
   }
-
+  */
   // ========= 3) Interview Swiper =========
   function initInterviewSwiper() {
     var el = document.querySelector('.js-interview-swiper');
@@ -336,7 +358,7 @@
   // ========= 初期化呼び出し =========
   onReady(function(){
     initHeaderMenu();
-    initIntroMovie();
+    //initIntroMovie();
     initInterviewSwiper();
     initpageInterviewSwiper();
     initpageofficetourSwiper();
