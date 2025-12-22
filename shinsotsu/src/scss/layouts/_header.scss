@@ -534,7 +534,8 @@
   .header-bnr {
     position: absolute;
     right: 55px;
-    width: 125px;
+    //width: 125px;
+    width: 110px;
     height: 55px;
     display: block;
     @media (min-width: g.$desktop-breakpoint-md) {

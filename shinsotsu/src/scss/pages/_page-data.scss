@@ -306,6 +306,18 @@
         
     }
 
+    .p-section__notetext {
+        font-size: 0.875rem;
+        color: #8A8A8A;
+        font-weight: 400;
+        text-align: right;
+        margin-bottom: 5px;
+        @media (min-width: g.$desktop-breakpoint-md) {
+            font-size: 1.1875rem;
+            margin-bottom: 10px;
+        }
+    }
+
     //environment
     .p-section--environment {
         width: 100%;
