@@ -16,52 +16,83 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;*/
-  height: 100vh;
+  height: auto;
+  min-height: 1px;
   position: relative;
   top: -56px;
   margin: 0 auto;
   overflow: hidden;
   margin-bottom: -100px;
-  @media (min-width: g.$desktop-breakpoint-md) {
+  aspect-ratio: 226 / 324;
+  width: 100%;
+
+  // 768px〜1380px: 横幅100%でaspect-ratio維持
+  @media (min-width: g.$desktop-breakpoint-md) and (max-width: 1379px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1380 / 900; // 横幅100%で比率維持
+    min-height: auto;
+    position: relative;
+    top: -100px;
+    margin: 0 auto;
+    margin-bottom: -100px;
+    transform-origin: center top;
+    overflow: visible;
+  }
+
+  // 1380px以上: 固定サイズ
+  @media (min-width: 1380px) {
     //background-image: url('/assets/img/top/kv_dammy_pc.png');
     //background-size: contain;
     //background-position: center;
     //background-repeat: no-repeat;
+    aspect-ratio: 1380 / 900;
     width: 100%;
     position: relative;
     top: -100px;
     margin: 0 auto;
-    //margin-bottom: -100px;
-    margin-bottom: -500px;
+    margin-bottom: -100px;
     max-width: 100%;
-    height: 1200px; // キューブ全体が見えるように拡張
+    height: auto;
+    min-height: 1px;
+    transform-origin: center top;
+    overflow: visible;
+    max-width: 1380px;
   }
 }
 
 .kv {
-  width: 100%;
+  width: 100vw;
+  height: auto;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  //bottom: 0;
-  width: 100vw;
-  height: 100vh; // キューブ全体が見えるように拡張
+  aspect-ratio: 226 / 324;
   //background-color: #ddd;
   //filter: blur(0px);
   //transition: filter 0.3s;
-  @media (min-width: g.$desktop-breakpoint-sm) {
+  @media (min-width: 768px ) {
     width: 100%;
+    max-width: 1380px;
+    height: auto; // 固定値から100vhに変更
+    //min-height: 900px; // 最小高さを確保
+    aspect-ratio: 1380 / 900;
     position: absolute;
-    //top: 0;
-    //left: 50%;
-    top: -40px;
-    left: 40%;
+    top: 0;
+    left: 50%;
     transform: translateX(-50%);
-    //bottom: 0;
-    width: 100vw;
-    height: 1200px; // キューブ全体が見えるように拡張
+    //background-color: #c4c4c4;
     //background-color: #ddd;
+  }
+  canvas{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    @media (min-width: 768px ) {
+      aspect-ratio: 1380 / 900;
+      height: auto !important;
+    }
   }
 }
 
@@ -83,16 +114,16 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  aspect-ratio: 1440 / 1354;  
+  aspect-ratio: 1440 / 1354;
   width: 1117px;
   height: auto;
   @media (min-width: g.$desktop-breakpoint-md) {
-    //top: calc(50% + 35px);
-    top: calc(50% + -85px);
+    top: calc(50% + 35px);
+    top: 0px;
     left: calc(50% - 26px);
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(0%);
     //transform: none;
-    aspect-ratio: 1440 / 1354;  
+    aspect-ratio: 1440 / 1354;
     width: 1440px;
     height: 1354px;
     background-size: contain;
@@ -111,15 +142,14 @@
   transform: translateX(-50%) translateY(-50%);
   padding: 0 0px;
   box-sizing: border-box;
+  width: 334px;
   // background-color: #eee;
   // opacity: 0.6;
   @media (min-width: g.$desktop-breakpoint-md) {
     width: 735px;
     height: 365px;
-    //left: calc(50% + -43px);
-    //top: 232px;
-    left: calc(50% - 163px);
-    top: 276px;
+    left: calc(50% - 175px);
+    top: 280px;
     padding: 0;
     transform: translateX(0) translateY(0);
     //background-color: #eee;
@@ -184,7 +214,7 @@
       max-width: 463px;
       position: absolute;
       left: 179px;
-      top: 184px;
+      top: 204px;
     }
     &:before{
       content: "";
@@ -231,7 +261,7 @@
     font-size: 22px;
     left: calc(50% + 292px);
     //top: calc(50% + 109px);
-    top: calc(50% + 54px);
+    top: 650px;
     transform: none;
     padding: 0px;
     padding-top: 17px;

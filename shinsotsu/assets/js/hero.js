@@ -21,6 +21,25 @@ class VideoCubeIntro {
         this.initialCameraState = null; // 初期カメラ状態（リサイズ時も保持）
         this.skipIntro = false; // イントロスキップフラグ
 
+        // ========================================
+        // キューブ最終ポジション設定（ここで一括管理）
+        // ========================================
+        this.cubeEndPosition = {
+            // PC用の最終位置
+            pc: { x: -0, y: 0, z: -1000 },
+            // SP用の最終位置
+            sp: { x: 0, y: 320, z: -300 }
+        };
+
+        // ========================================
+        // レスポンシブスケール設定
+        // ========================================
+        this.scaleConfig = {
+            baseWidth: 1380,  // 基準幅（これ以上は1.0スケール）
+            minWidth: 768,    // SP切り替え幅（これ以下はSP表示）
+            minScale: 0.55    // 768pxでの最小スケール
+        };
+
         // sessionStorageをチェック（下層ページからの遷移）
         const fromLower = sessionStorage.getItem('fromLowerToTop');
         if (fromLower === '1') {
@@ -39,19 +58,32 @@ class VideoCubeIntro {
         this.scene.background = null; // 透過背景
 
         // 実際の描画サイズを計算
-        const canvasWidth = window.innerWidth;
-        const canvasHeight = Math.min(window.innerHeight, this.maxHeight);
+        const isMobileInit = window.innerWidth < 768;
+        let canvasWidth, canvasHeight;
+
+        if (isMobileInit) {
+            // SP: 226:324の比率で固定（横幅100%）
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerWidth * (324 / 226);
+        } else {
+            // PC: 常に固定サイズ（CSSでスケール）
+            canvasWidth = 1380;
+            canvasHeight = 900;
+        }
 
         // カメラ作成
+        // キューブの見え方を固定するため、固定アスペクト比を使用
+        const cameraAspect = isMobileInit ? (226 / 324) : (1380 / 900);
         this.camera = new THREE.PerspectiveCamera(
             45,
-            canvasWidth / canvasHeight,
+            cameraAspect,
             0.1,
             5000
         );
 
         // SP/PC判定
         const isMobile = window.innerWidth < 768;
+        const width = window.innerWidth;
 
         if (isMobile) {
             // SP: キューブが画面に対して丸1.5個分上に表示されるようカメラを配置
@@ -186,6 +218,9 @@ class VideoCubeIntro {
 
         // ウィンドウリサイズ対応
         window.addEventListener('resize', () => this.onWindowResize());
+
+        // 初期表示時のレスポンシブスケールを適用
+        this.applyResponsiveScale();
     }
 
     createLoadingElement() {
@@ -250,9 +285,10 @@ class VideoCubeIntro {
             Math.PI       // 後面: 180°
         ];
 
-        // スマホとPCでサイズを変更
+        // レスポンシブなサイズ計算（SP/PCで固定値を使用）
         const isMobile = window.innerWidth < 768;
-        const size = isMobile ? 800 : 1300;
+        this.baseSize = isMobile ? 800 : 1300;
+        const size = this.baseSize;
         const gap = isMobile ? 15 : 20;
         const offset = (size / 2) + gap;
 
@@ -289,13 +325,6 @@ class VideoCubeIntro {
                     if (loadedCount === totalImages) {
                         this.imagesLoaded = true;
                         this.removeLoadingElement();
-
-                        // ヘッダー
-                        const siteHeader = document.querySelector('.site-header');
-                        if (siteHeader) {
-                            siteHeader.style.transition = 'transform 0.6s ease-out';
-                            siteHeader.style.transform = 'translateY(0)';
-                        }
                     }
                 },
                 // 進行中（オプション）
@@ -614,10 +643,10 @@ class VideoCubeIntro {
                 kvBg.style.opacity = easedProgress;
             }
 
-            // スマホとPCでサイズを変更（より大きな動きに）
+            // レスポンシブなサイズ変更（SP/PCで固定値を使用）
             const isMobile = window.innerWidth < 768;
-            const startSize = isMobile ? 800 : 1300;
-            const endSize = isMobile ? 550 : 900; // より大きな縮小幅
+            const startSize = this.baseSize;
+            const endSize = isMobile ? 550 : 900;
             const currentSize = startSize + (endSize - startSize) * easedProgress;
             this.cube.scale.set(
                 currentSize / startSize,
@@ -627,16 +656,18 @@ class VideoCubeIntro {
 
             // 3点を通る曲線で移動（2次ベジェ曲線）
             // SP/PC判定でベジェ曲線のポイントを設定
+            // 画面サイズに相対的な値を使用して比率を維持
             let P0, P1, P2;
+            const width = window.innerWidth;
 
             if (isMobile) {
                 P0 = { x: 0, y: 0, z: 500 };        // 始点
                 P1 = { x: -400, y: -200, z: 0 };     // 中間点（制御点）
-                P2 = { x: 0, y: 320, z: -300 };       // 終点
+                P2 = this.cubeEndPosition.sp;       // 終点（変数から参照）
             } else {
                 P0 = { x: 0, y: 0, z: 600 };        // 始点
                 P1 = { x: -900, y: -600, z: 0 };     // 中間点（制御点）
-                P2 = { x: 300, y: 0, z: -1000 };       // 終点
+                P2 = this.cubeEndPosition.pc;       // 終点（変数から参照）
             }
 
             const t = easedProgress; // 0 to 1
@@ -650,6 +681,33 @@ class VideoCubeIntro {
             this.cube.position.x = term0 * P0.x + term1 * P1.x + term2 * P2.x;
             this.cube.position.y = term0 * P0.y + term1 * P1.y + term2 * P2.y;
             this.cube.position.z = term0 * P0.z + term1 * P1.z + term2 * P2.z;
+        }
+    }
+
+    // レスポンシブなサイズを計算
+    // 768px以上はPCサイズ固定（.kv-containerのスケールで縮小される）
+    getResponsiveSize(phase = 'start') {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        if (phase === 'start') {
+            // 開始時のサイズ（フェードイン時）
+            if (width < 768) {
+                // SP: 画面幅の80%または画面高さの50%のいずれか小さい方
+                return Math.min(width * 0.8, height * 0.5, 800);
+            } else {
+                // PC: 1300px固定（.kv-containerのスケールで縮小）
+                return 1300;
+            }
+        } else {
+            // 終了時のサイズ（ズームアウト後）
+            if (width < 768) {
+                // SP: 画面幅の60%
+                return Math.min(width * 0.6, height * 0.4, 550);
+            } else {
+                // PC: 900px固定（.kv-containerのスケールで縮小）
+                return 900;
+            }
         }
     }
 
@@ -885,12 +943,9 @@ class VideoCubeIntro {
             endSize / startSize
         );
 
-        // キューブの位置を終了状態に（ベジェ曲線の終点）
-        if (isMobile) {
-            this.cube.position.set(0, 320, -300);
-        } else {
-            this.cube.position.set(300, 0, -1000);
-        }
+        // キューブの位置を終了状態に（ベジェ曲線の終点 - 変数から参照）
+        const endPos = isMobile ? this.cubeEndPosition.sp : this.cubeEndPosition.pc;
+        this.cube.position.set(endPos.x, endPos.y, endPos.z);
 
         // kv-bgを表示
         const kvBg = document.querySelector('.kv-bg');
@@ -942,29 +997,102 @@ class VideoCubeIntro {
         }
     }
 
-    onWindowResize() {
-        const canvasWidth = window.innerWidth;
-        const isMobile = window.innerWidth < 768;
+    // 現在の画面幅に応じたスケール値を計算
+    getResponsiveScale() {
+        const width = window.innerWidth;
+        const { baseWidth, minWidth, minScale } = this.scaleConfig;
 
-        // PCの場合は初期の高さを維持、SPの場合は可変
-        let canvasHeight;
-        if (isMobile) {
-            canvasHeight = Math.min(window.innerHeight, this.maxHeight);
+        if (width >= baseWidth) {
+            // 1380px以上: スケール1.0
+            return 1.0;
+        } else if (width <= minWidth) {
+            // 768px以下: SP表示なのでスケールは適用しない（1.0を返す）
+            return 1.0;
         } else {
-            // PCの場合は初期カメラ状態から高さを取得（固定）
-            if (this.initialCameraState && !this.initialCameraState.isMobile) {
-                // 初期設定時の高さを維持
-                canvasHeight = this.maxHeight;
-            } else {
-                canvasHeight = Math.min(window.innerHeight, this.maxHeight);
-            }
+            // 768px〜1380pxの間: 線形補間でスケールを計算
+            const ratio = (width - minWidth) / (baseWidth - minWidth);
+            return minScale + (1.0 - minScale) * ratio;
+        }
+    }
+
+    // .kv-container全体にスケールを適用（子要素の関係性を維持）
+    applyResponsiveScale() {
+        const width = window.innerWidth;
+        const isMobile = width < 768;
+        const scale = this.getResponsiveScale();
+
+        // .kv-containerにスケールを適用
+        const kvContainer = document.querySelector('.kv-container');
+
+        if (!kvContainer) return;
+
+        if (isMobile) {
+            // SP: スケールをリセット
+            kvContainer.style.transform = 'none';
+        } else if (width < 1380) {
+            // 768px〜1380px: コンテナ全体にスケールを適用
+            kvContainer.style.transform = `scale(${scale})`;
+        } else {
+            // 1380px以上: 通常表示
+            kvContainer.style.transform = 'none';
+        }
+    }
+
+    onWindowResize() {
+        const isMobile = window.innerWidth < 768;
+        const wasMobile = this.initialCameraState ? this.initialCameraState.isMobile : isMobile;
+
+        // キャンバスサイズを計算
+        let canvasWidth, canvasHeight;
+        if (isMobile) {
+            // SP: 226:324の比率で固定（横幅100%）
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerWidth * (324 / 226);
+        } else {
+            // PC: 常に固定サイズ（CSSでスケール）
+            canvasWidth = 1380;
+            canvasHeight = 900;
         }
 
-        // 初期カメラ状態を維持（位置・回転は変更しない）
-        // アスペクト比とレンダラーサイズのみ更新
-        this.camera.aspect = canvasWidth / canvasHeight;
+        // カメラのアスペクト比（固定比率）
+        const cameraAspect = isMobile ? (226 / 324) : (1380 / 900);
+        this.camera.aspect = cameraAspect;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(canvasWidth, canvasHeight);
+
+        // SP/PC切り替え時にカメラとキューブの位置を更新
+        if (isMobile !== wasMobile) {
+            // カメラ位置を更新
+            if (isMobile) {
+                // SP: キューブが画面に対して丸1.5個分上に表示されるようカメラを配置
+                this.camera.position.set(0, 300, 2500);
+                this.camera.lookAt(0, 0, 0);
+                this.camera.rotation.z = 0;
+            } else {
+                // PC: 黄色丸が青丸の位置に見える
+                this.camera.position.set(-1768, 450, 1768);
+                this.camera.lookAt(0, 0, 0);
+                this.camera.rotation.z = 0;
+            }
+
+            // アニメーション完了後の場合、キューブ位置とサイズを更新
+            if (this.animationProgress >= 1) {
+                const endPos = isMobile ? this.cubeEndPosition.sp : this.cubeEndPosition.pc;
+                this.cube.position.set(endPos.x, endPos.y, endPos.z);
+
+                // キューブ作成時のサイズ（this.baseSize）を基準にスケールを計算
+                // 目標サイズ：SP=550, PC=900
+                const targetEndSize = isMobile ? 550 : 900;
+                const scale = targetEndSize / this.baseSize;
+                this.cube.scale.set(scale, scale, scale);
+            }
+
+            // 状態を更新
+            this.initialCameraState.isMobile = isMobile;
+        }
+
+        // CSS要素のレスポンシブスケールを適用
+        this.applyResponsiveScale();
     }
 }
 
