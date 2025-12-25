@@ -23,6 +23,9 @@ assets/css/style.css
 src/scss/style.css
 
 **/index-templa.html
+/shinsotsu/pasu__.htaccess
+/shinsotsu/pasu__.htpasswd
+
 
 
 # Workflows は除外しない
